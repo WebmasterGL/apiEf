@@ -1,0 +1,11 @@
+apipublica_nota_slug:
+    path:   /slug
+    defaults: { _controller: ApipublicaBundle:Page:getSlug  }
+    methods: GET
+
+apipublica_nota_breaking_news:
+    path:   /breaking-news
+    defaults: { _controller: ApipublicaBundle:Page:getBreakingNews }
+    methods: GET
+
+

@@ -1,0 +1,20 @@
+backend_api_users:
+    path:   /{iduser}
+    defaults: { _controller: BackendBundle:User:users, iduser: null }
+    methods: GET
+
+backend_api_user_new:
+    path:   /
+    defaults: { _controller: BackendBundle:User:newUser }
+    methods: POST
+
+backend_api_user_edit:
+    path:   /{id}
+    defaults: { _controller: BackendBundle:User:editUser, id: null }
+    methods: PUT
+
+backend_api_user_delete:
+    path:   /{id}
+    defaults: { _controller: BackendBundle:User:deleteUser, id: null }
+    methods: DELETE
+

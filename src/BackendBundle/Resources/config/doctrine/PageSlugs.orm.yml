@@ -1,0 +1,51 @@
+BackendBundle\Entity\PageSlugs:
+    type: entity
+    table: page_slugs
+    indexes:
+        IDX_DEABAD32C4663E4:
+            columns:
+                - page_id
+        slug_idx:
+            columns:
+                - slug
+    uniqueConstraints:
+        page_slug:
+            columns:
+                - slug
+                - page_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        createdAt:
+            type: datetime
+            nullable: false
+            column: created_at
+        updatedAt:
+            type: datetime
+            nullable: false
+            column: updated_at
+        slug:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+    manyToOne:
+        page:
+            targetEntity: Page
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                page_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

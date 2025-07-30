@@ -1,0 +1,4 @@
+backend_get_bitacora:
+    path:   /
+    defaults: { _controller: BackendBundle:UserVideo:getData }
+    methods: GET

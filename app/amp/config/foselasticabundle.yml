@@ -1,0 +1,304 @@
+fos_elastica:
+   clients:
+      default:
+         host: %fos_elastica.host%
+         port: %fos_elastica.port%
+   indexes:
+       efredisenio:
+           finder: ~
+           client: default
+           settings:
+              index:
+                  analysis:
+                      analyzer:
+                          default:              #find without accents
+                          #lc-af:               #doesnt find without accents
+                              tokenizer: standard
+                              filter: [ standard, lowercase, asciifolding ]
+           types:
+               page:
+                  mappings:
+                       id:
+                           type: integer
+                       category: ~
+                       categoryId: ~
+                       title: ~
+                       createdAt:
+                           type: date
+                       publishedAt:
+                           type: date
+                       nextPublishedAt:
+                           type: date
+                       updatedAt:
+                           type: date
+                       status: ~
+                       slug:
+                           type: text
+                           index: not_analyzed
+                       author: ~
+                       content: ~
+                       mainImage: ~
+                       pageType: ~
+                       creator: ~
+                       bullets: ~
+                       shortDescription: ~
+                       tag: ~
+                       columna: ~
+                       blog: ~
+                       html_serialize: ~
+                       html: ~
+                       elementHtmlSerialized: ~
+                       image: ~
+                       isBreaking: ~
+                       rss: ~
+                       portalId: ~
+                       isBreaking: ~
+                  persistence:
+                       identifier: id
+                       driver: orm
+                       model: BackendBundle\Entity\Page
+                       finder: ~
+                       provider: ~
+                       listener: ~
+               tag:
+                  mappings:
+                       id:
+                          type: integer
+                       title: ~
+                       slug: ~
+                       type: ~
+                       active: ~
+                       createdAt:
+                          type: date
+                  persistence:
+                       identifier: id
+                       driver: orm
+                       model: BackendBundle\Entity\Tag
+               image:
+                  mappings:
+                       id:
+                          type: integer
+                       createdAt:
+                           type: date
+                       updatedAt:
+                           type: date
+                       slug: ~
+                       title: ~
+                       description: ~
+                       imageName: ~
+                       imagePath: ~
+                       credito: ~
+                       portalId: ~
+                       footnote: ~
+                       sourcecat: ~
+                       tag: ~
+                       type: ~
+                       versiones: ~
+                  persistence:
+                       identifier: id
+                       driver: orm
+                       model: BackendBundle\Entity\Image
+                       provider: ~
+                       listener: ~
+                       finder: ~
+               folds:
+                  mappings:
+                       id:
+                          type: integer
+                       descripcion: ~
+                       category: ~
+                       idtipo: ~
+                  persistence:
+                       identifier: id
+                       driver: orm
+                       model: BackendBundle\Entity\Folds
+                       finder: ~
+                       provider: ~
+                       listener: ~
+               portada:
+                  mappings:
+                       id:
+                          type: integer
+                       name: ~
+                       status: ~
+                       observaciones: ~
+                       createdAt:
+                          type: date
+                       updatedAt:
+                          type: date
+                       publishedAt:
+                          type: date
+                       nextPublishedAt:
+                          type: date
+                       createdBy: ~
+                       category: ~
+                       updatedBy: ~
+                       editingById: ~
+                  persistence:
+                       identifier: id
+                       driver: orm
+                       model: BackendBundle\Entity\Portada
+                       finder: ~
+                       provider: ~
+                       listener: ~
+               author:
+                  mappings:
+                       id:
+                          type: integer
+                       name: ~
+                       email: ~
+                       bio: ~
+                       twitter: ~
+                       aMaterno: ~
+                       aPaterno: ~
+                       email: ~
+                       facebook: ~
+                       linkedin: ~
+                       active: ~
+                       googlePlus: ~
+                       corresponsal: ~
+                       sexo: ~
+                       rss: ~
+                       slug: ~
+                       image: ~
+                       imageSmall: ~
+                  persistence:
+                       identifier: id
+                       driver: orm
+                       model: BackendBundle\Entity\Author
+                       finder: ~
+                       provider: ~
+                       listener: ~
+               category:
+                  mappings:
+                       id:
+                          type: integer
+                       parentId:
+                          type: integer
+                       title: ~
+                       description: ~
+                       active: ~
+                       createdAt:
+                          type: date
+                       updatedAt:
+                          type: date
+                       template: ~
+                       articleTemplate: ~
+                       slug: ~
+                       type: ~
+                       portalId: ~
+                       color: ~
+                       svg: ~
+                  persistence:
+                       identifier: id
+                       driver: orm
+                       model: BackendBundle\Entity\Category
+               flags:
+                  mappings:
+                       idflags:
+                          type: integer
+                       name: ~
+                       imageUrl: ~
+                       active: ~
+                  persistence:
+                       identifier: idflags
+                       driver: orm
+                       model: BackendBundle\Entity\Flags
+               columna:
+                  mappings:
+                       id:
+                           type: integer
+                       nombre: ~
+                       slug: ~
+                       nombreSistema: ~
+                       active: ~
+                       createdAt:
+                           type: date
+                       updatedAt:
+                           type: date
+                       activatedAt:
+                           type: date
+                       image: ~
+                       authors: ~
+                  persistence:
+                       identifier: id
+                       driver: orm
+                       model: BackendBundle\Entity\Columna
+                       finder: ~
+                       provider: ~
+                       listener: ~
+               blog:
+                  mappings:
+                       id:
+                           type: integer
+                       category: ~
+                       title: ~
+                       description: ~
+                       identidad: ~
+                       imageName: ~
+                       active: ~
+                       slug: ~
+                       metadatos: ~
+                       createdAt:
+                           type: date
+                       updatedAt:
+                           type: date
+                       author: ~
+                  persistence:
+                       identifier: id
+                       driver: orm
+                       model: BackendBundle\Entity\Blog
+               portadafolds:
+                  mappings:
+                       id:
+                          type: integer
+                       status: ~
+                       content: ~
+                       createdAt:
+                          type: date
+                       updatedAt:
+                          type: date
+                       publishedAt:
+                          type: date
+                       nextPublishedAt:
+                          type: date
+                       orden:
+                          type: integer
+                       code: ~
+                       visible: ~
+                       idportada: ~
+                       idfold: ~
+                       updatedBy: ~
+                       editingBy: ~
+                  persistence:
+                       identifier: id
+                       driver: orm
+                       model: BackendBundle\Entity\PortadaFolds
+                       finder: ~
+                       provider: ~
+                       listener: ~
+               wfuser:
+                  mappings:
+                       id:
+                          type: integer
+                       username: ~
+                       email: ~
+                       enabled: ~
+                       roles: ~
+                       credentialsExpireAt: ~
+                       firstName: ~
+                       aPaterno: ~
+                       aMaterno: ~
+                       twitter: ~
+                       facebook: ~
+                       avatar: ~
+                       blog: ~
+                       page: ~
+                       group: ~
+                  persistence:
+                       identifier: id
+                       driver: orm
+                       model: BackendBundle\Entity\WfUser
+                       finder: ~
+                       provider: ~
+                       listener: ~

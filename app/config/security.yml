@@ -1,0 +1,194 @@
+# To get started with security, check out the documentation:
+# http://symfony.com/doc/current/security.html
+security:
+    encoders:
+        BackendBundle\Entity\WfUser:
+            algorithm: sha512
+    providers:
+        user_db_provider:
+            entity:
+                class: BackendBundle:WfUser
+                property: username
+
+    #encoders:
+    #        Symfony\Component\Security\Core\User\User: plaintext
+    #providers:
+    #    in_memory:
+    #                memory:
+    #                    users:
+    #                        ryan:
+    #                            password: ryanpass
+    #                            roles: 'ROLE_USER'
+
+    firewalls:
+        public:
+            methods: [POST,GET]
+            pattern: ^/api/(login|doc)
+            security: false
+
+
+        # disables authentication for assets and the profiler, adapt it according to your needs
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+
+
+        main:
+            anonymous: ~
+            stateless:  true
+            guard:
+                authenticators:
+                    - app.token_authenticator
+            access_denied_handler: listener.access_denied.handler
+            logout:
+                path:   /api/logout
+                target: /api/home
+            # activate different ways to authenticate
+
+            # http://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
+            #http_basic: ~
+
+            # http://symfony.com/doc/current/cookbook/security/form_login_setup.html
+            #form_login: ~
+    access_control:
+        # require ROLE_ADMIN for /admin*
+        - { path: ^/api/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api/doc, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api/testToken, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+
+
+        - { path: ^/api/search, roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_REDACTORJR, ROLE_BECARIOAUXILIAR, ROLE_MULTIMEDIA, ROLE_SEARCH_GET ] , methods: [GET] }
+        - { path: ^/api/google/search, roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_REDACTORJR, ROLE_BECARIOAUXILIAR, ROLE_MULTIMEDIA, ROLE_GOOGLE_SEARCH ] , methods: [GET] }
+
+        - { path: ^/api/pages/testpurga,    roles: [ ROLE_SUPER_ADMIN, ROLE_PAGE_PURGE ] , methods: [GET] }
+
+        - { path: ^/api/pages$,             roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_REDACTORJR, ROLE_BECARIOAUXILIAR, ROLE_MULTIMEDIA, ROLE_PAGE_GET ] , methods: [GET] }
+        - { path: ^/api/pages,              roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_REDACTORJR, ROLE_BECARIOAUXILIAR, ROLE_MULTIMEDIA, ROLE_PAGECLONE_GET ] , methods: [GET] }
+        - { path: ^/api/pages$,             roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_REDACTORJR, ROLE_BECARIOAUXILIAR, ROLE_MULTIMEDIA, ROLE_PAGE_CREATE ] , methods: [POST] }
+        - { path: ^/api/pages/slug,         roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_REDACTORJR, ROLE_BECARIOAUXILIAR, ROLE_MULTIMEDIA, ROLE_PAGE_SLUG ] , methods: [POST] }
+        - { path: ^/api/pages/validate/slug,roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_REDACTORJR, ROLE_BECARIOAUXILIAR, ROLE_MULTIMEDIA, ROLE_PAGE_SLUGVALIDATE ] , methods: [POST] }
+        - { path: ^/api/pages,              roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_REDACTORJR, ROLE_BECARIOAUXILIAR, ROLE_MULTIMEDIA, ROLE_PAGE_EDIT ] , methods: [PUT] }
+        - { path: ^/api/pages/publish,      roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_REDACTORJR, ROLE_MULTIMEDIA, ROLE_PAGE_PUBLISH ] , methods: [POST] }
+        - { path: ^/api/pages/unpublish,    roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_PAGE_UNPUBLISH ] , methods: [PUT] }
+
+
+        - { path: ^/api/columns-pages,          roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_REDACTORJR, ROLE_COLUMNTEXT_GET ] , methods: [GET] }
+        - { path: ^/api/columns-pages$,         roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_REDACTORJR, ROLE_COLUMNTEXT_CREATE ] , methods: [POST] }
+        - { path: ^/api/columns-pages/slug,     roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_REDACTORJR, ROLE_COLUMNTEXT_SLUG ] , methods: [POST] }
+        - { path: ^/api/columns-pages/validate/slug, roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_REDACTORJR, ROLE_COLUMNTEXT_SLUGVALIDATE ] , methods: [POST] }
+        - { path: ^/api/columns-pages/save,         roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_REDACTORJR, ROLE_COLUMNTEXT_EDIT ] , methods: [PUT] }
+        - { path: ^/api/columns-pages/publish,  roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_REDACTORJR, ROLE_COLUMNTEXT_PUBLISH ] , methods: [POST] }
+        - { path: ^/api/columns-pages/unpublish,roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_COLUMNTEXT_UNPUBLISH ] , methods: [DELETE] }
+        - { path: ^/api/columns-pages/trash,    roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_COLUMNTEXT_TRASH ] , methods: [DELETE] }
+
+        - { path: ^/api/blogpost-pages,              roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_REDACTORJR, ROLE_BECARIOAUXILIAR, ROLE_MULTIMEDIA, ROLE_POSTBLOG_GET ] , methods: [GET] }
+        - { path: ^/api/blogpost-pages,             roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_REDACTORJR, ROLE_BECARIOAUXILIAR, ROLE_MULTIMEDIA, ROLE_POSTBLOG_CREATE ] , methods: [POST] }
+        - { path: ^/api/blogpost-pages/slug,         roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_REDACTORJR, ROLE_BECARIOAUXILIAR, ROLE_MULTIMEDIA, ROLE_POSTBLOG_SLUG ] , methods: [POST] }
+        - { path: ^/api/blogpost-pages/validate/slug,roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_REDACTORJR, ROLE_BECARIOAUXILIAR, ROLE_MULTIMEDIA, ROLE_POSTBLOG_SLUGVALIDATE ] , methods: [POST] }
+        - { path: ^/api/blogpost-pages/save,             roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_REDACTORJR, ROLE_BECARIOAUXILIAR, ROLE_MULTIMEDIA, ROLE_POSTBLOG_EDIT ] , methods: [PUT] }
+        - { path: ^/api/blogpost-pages/publish,      roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_REDACTORJR, ROLE_MULTIMEDIA, ROLE_POSTBLOG_PUBLISH ] , methods: [POST] }
+        - { path: ^/api/blogpost-pages/unpublish,    roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_POSTBLOG_UNPUBLISH ] , methods: [DELETE] }
+        - { path: ^/api/blogpost-pages/trash,        roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_POSTBLOG_TRASH ] , methods: [DELETE] }
+
+        - { path: ^/api/image,        roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_REDACTORJR, ROLE_BECARIOAUXILIAR, ROLE_MULTIMEDIA, ROLE_IMAGE_GET ] , methods: [GET] }
+        - { path: ^/api/image,        roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_REDACTORJR, ROLE_BECARIOAUXILIAR, ROLE_MULTIMEDIA, ROLE_IMAGE_CREATE ] , methods: [POST] }
+        - { path: ^/api/image,        roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_IMAGE_DELETE ] , methods: [DELETE] }
+
+        - { path: ^/api/vimeo,          roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_REDACTORJR, ROLE_BECARIOAUXILIAR, ROLE_MULTIMEDIA, ROLE_VIMEO_GET ] , methods: [GET] }
+        - { path: ^/api/vimeo,          roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_REDACTORJR, ROLE_BECARIOAUXILIAR, ROLE_MULTIMEDIA, ROLE_VIMEO_CREATE ] , methods: [POST] }
+        - { path: ^/api/vimeo,          roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_REDACTORJR, ROLE_BECARIOAUXILIAR, ROLE_MULTIMEDIA, ROLE_VIMEO_EDIT ] , methods: [PUT] }
+        - { path: ^/api/vimeo/publish,  roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_REDACTORJR, ROLE_BECARIOAUXILIAR, ROLE_MULTIMEDIA, ROLE_VIMEO_PUBLISH ] , methods: [PUT] }
+        - { path: ^/api/vimeo/unpublish,roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_REDACTORJR, ROLE_BECARIOAUXILIAR, ROLE_MULTIMEDIA, ROLE_VIMEO_UNPUBLISH ] , methods: [PUT] }
+        - { path: ^/api/vimeo,          roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_MULTIMEDIA, ROLE_VIMEO_DELETE ] , methods: [DELETE] }
+
+        - { path: ^/api/photogallery,          roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_REDACTORJR, ROLE_BECARIOAUXILIAR, ROLE_MULTIMEDIA, ROLE_PHOTOGALLERY_GET ] , methods: [GET] }
+        - { path: ^/api/photogallery,          roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_REDACTORJR, ROLE_BECARIOAUXILIAR, ROLE_MULTIMEDIA, ROLE_PHOTOGALLERY_CREATE ] , methods: [POST] }
+        - { path: ^/api/photogallery,          roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_REDACTORJR, ROLE_BECARIOAUXILIAR, ROLE_MULTIMEDIA, ROLE_PHOTOGALLERY_EDIT ] , methods: [PUT] }
+        - { path: ^/api/photogallery/publish,  roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_REDACTORJR, ROLE_BECARIOAUXILIAR, ROLE_MULTIMEDIA, ROLE_PHOTOGALLERY_PUBLISH ] , methods: [PUT] }
+        - { path: ^/api/photogallery/unpublish,roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_REDACTORJR, ROLE_BECARIOAUXILIAR, ROLE_MULTIMEDIA, ROLE_PHOTOGALLERY_UNPUBLISH ] , methods: [PUT] }
+        - { path: ^/api/photogallery,          roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_PHOTOGALLERY_DELETE ] , methods: [DELETE] }
+
+        - { path: ^/api/staticpage,          roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_REDACTORJR, ROLE_BECARIOAUXILIAR, ROLE_MULTIMEDIA, ROLE_STATICPAGE_GET ] , methods: [GET] }
+        - { path: ^/api/staticpage,          roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_REDACTORJR, ROLE_BECARIOAUXILIAR, ROLE_MULTIMEDIA, ROLE_STATICPAGE_CREATE ] , methods: [POST] }
+        - { path: ^/api/staticpage,          roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_REDACTORJR, ROLE_BECARIOAUXILIAR, ROLE_MULTIMEDIA, ROLE_STATICPAGE_EDIT ] , methods: [PUT] }
+        - { path: ^/api/staticpage/publish,  roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_REDACTORJR, ROLE_MULTIMEDIA, ROLE_STATICPAGE_PUBLISH ] , methods: [PUT] }
+        - { path: ^/api/staticpage/unpublish,roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_REDACTORJR, ROLE_MULTIMEDIA, ROLE_STATICPAGE_UNPUBLISH ] , methods: [PUT] }
+        - { path: ^/api/staticpage,          roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_STATICPAGE_DELETE ] , methods: [DELETE] }
+
+        - { path: ^/api/entradaagenda,        roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_REDACTORJR, ROLE_BECARIOAUXILIAR, ROLE_ENTRADAAGENDA_GET ] , methods: [GET] }
+        - { path: ^/api/entradaagenda,        roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_REDACTORJR, ROLE_BECARIOAUXILIAR, ROLE_ENTRADAAGENDA_CREATE ] , methods: [POST] }
+        - { path: ^/api/entradaagenda,        roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_REDACTORJR, ROLE_BECARIOAUXILIAR, ROLE_ENTRADAAGENDA_EDIT ] , methods: [PUT] }
+        - { path: ^/api/entradaagenda/publish,roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_REDACTORJR, ROLE_BECARIOAUXILIAR, ROLE_ENTRADAAGENDA_PUBLISH ] , methods: [PUT] }
+        - { path: ^/api/entradaagenda,        roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_ENTRADAAGENDA_DELETE ] , methods: [DELETE] }
+
+        - { path: ^/api/breakingnews,          roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_REDACTORJR, ROLE_BREAKINGNEWS_GET ] , methods: [GET] }
+        - { path: ^/api/breakingnews,          roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_REDACTORJR, ROLE_BREAKINGNEWS_CREATE ] , methods: [POST] }
+        - { path: ^/api/breakingnews,          roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_REDACTORJR, ROLE_BREAKINGNEWS_EDIT ] , methods: [PUT] }
+        - { path: ^/api/breakingnews/publish,  roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_REDACTORJR, ROLE_BREAKINGNEWS_PUBLISH ] , methods: [PUT] }
+        - { path: ^/api/breakingnews/unpublish,roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_BREAKINGNEWS_UNPUBLISH ] , methods: [PUT] }
+
+        - { path: ^/api/portadas,          roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_REDACTORJR, ROLE_MULTIMEDIA, ROLE_PORTADAS_GET ] , methods: [GET] }
+        - { path: ^/api/portadas,          roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_REDACTORJR, ROLE_MULTIMEDIA, ROLE_PORTADAS_CREATE ] , methods: [POST] }
+        - { path: ^/api/portadas/clone,    roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_REDACTORJR, ROLE_MULTIMEDIA, ROLE_PORTADAS_CLONE ] , methods: [POST] }
+        - { path: ^/api/portadas,          roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_REDACTORJR, ROLE_MULTIMEDIA, ROLE_PORTADAS_EDIT ] , methods: [PUT] }
+
+        - { path: ^/api/portadas-folds,    roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_REDACTORJR, ROLE_MULTIMEDIA, ROLE_PORTADAFOLDS_GET ] , methods: [GET] }
+        - { path: ^/api/portadas-folds,    roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_REDACTORJR, ROLE_MULTIMEDIA, ROLE_PORTADAFOLDS_EDIT ] , methods: [PUT] }
+
+        - { path: ^/api/tipofolds,       roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_REDACTORJR, ROLE_MULTIMEDIA, ROLE_TIPOFOLDS_GET ] , methods: [GET] }
+        - { path: ^/api/tipofolds,       roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_REDACTORJR, ROLE_MULTIMEDIA, ROLE_TIPOFOLDS_CREATE ] , methods: [POST] }
+        - { path: ^/api/tipofolds,       roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_REDACTORJR, ROLE_MULTIMEDIA, ROLE_TIPOFOLDS_DELETE ] , methods: [DELETE] }
+        - { path: ^/api/tipofolds,       roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_REDACTORJR, ROLE_MULTIMEDIA, ROLE_TIPOFOLDS_EDIT ] , methods: [PUT] }
+
+        - { path: ^/api/folds,       roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_REDACTORJR, ROLE_MULTIMEDIA, ROLE_FOLDS_GET ] , methods: [GET] }
+        - { path: ^/api/folds,       roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_REDACTORJR, ROLE_MULTIMEDIA, ROLE_FOLDS_CREATE ] , methods: [POST] }
+        - { path: ^/api/folds,       roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_REDACTORJR, ROLE_MULTIMEDIA, ROLE_FOLDS_DELETE ] , methods: [DELETE] }
+        - { path: ^/api/folds,       roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_REDACTORJR, ROLE_MULTIMEDIA, ROLE_FOLDS_EDIT ] , methods: [PUT] }
+
+        - { path: ^/api/authors,         roles: [ ROLE_SUPER_ADMIN,  ROLE_EDITOR, ROLE_REDACTOR, ROLE_REDACTORJR, ROLE_BECARIOAUXILIAR, ROLE_MULTIMEDIA, ROLE_AUTHORS_GET ] , methods: [GET] }
+        - { path: ^/api/authors,         roles: [ ROLE_SUPER_ADMIN , ROLE_EDITOR, ROLE_REDACTOR, ROLE_AUTHORS_CREATE ] , methods: [POST] }
+        - { path: ^/api/authors,         roles: [ ROLE_SUPER_ADMIN , ROLE_EDITOR, ROLE_REDACTOR, ROLE_AUTHORS_EDIT ] , methods: [PUT] }
+        - { path: ^/api/authors,         roles: [ ROLE_SUPER_ADMIN , ROLE_EDITOR, ROLE_AUTHORS_DELETE ] , methods: [DELETE] }
+
+        - { path: ^/api/users$,                       roles: [ ROLE_SUPER_ADMIN , ROLE_EDITOR, ROLE_USERS_GET ] , methods: [GET]  }
+        - { path: ^/api/users/paths,                  roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_REDACTORJR, ROLE_BECARIOAUXILIAR, ROLE_MULTIMEDIA, ROLE_USERS_GETPATHS ] , methods: [GET] }
+        - { path: ^/api/users/roles,                  roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_REDACTOR, ROLE_REDACTORJR, ROLE_BECARIOAUXILIAR, ROLE_MULTIMEDIA, ROLE_USERS_GETROLES ] , methods: [GET] }
+        - { path: ^/api/users/\d+,                    roles: [ ROLE_SUPER_ADMIN, ROLE_EDITOR, ROLE_USERS_GETUSER ] , methods: [GET] }
+        - { path: ^/api/users,                        roles: [ ROLE_SUPER_ADMIN , ROLE_EDITOR, ROLE_USERS_CREATE ] , methods: [POST]  }
+        - { path: ^/api/users,                        roles: [ ROLE_SUPER_ADMIN , ROLE_EDITOR, ROLE_USERS_EDIT ] , methods: [PUT]  }
+        - { path: ^/api/users,                        roles: [ ROLE_SUPER_ADMIN , ROLE_EDITOR, ROLE_USERS_DELETE ] , methods: [DELETE] }
+        - { path: ^/api/users/permissions,            roles: [ ROLE_SUPER_ADMIN , ROLE_EDITOR, ROLE_USERSPERMISSIONS_GET ] , methods: [GET]  }
+        - { path: ^/api/users/permsnotassigned,       roles: [ ROLE_SUPER_ADMIN , ROLE_EDITOR, ROLE_USERSPERMSNOTASSIGNED_GET ] , methods: [GET]  }
+        - { path: ^/api/users/profile,                roles: [ ROLE_SUPER_ADMIN , ROLE_EDITOR, ROLE_USERSPROFILE_GET ] , methods: [GET]  }
+        - { path: ^/api/users/roles/rolestranslated,  roles: [ ROLE_SUPER_ADMIN , ROLE_EDITOR, ROLE_USERSROLESTRANSLATED_GET ] , methods: [GET]  }
+
+        - { path: ^/api/flags,         roles: [ ROLE_SUPER_ADMIN , ROLE_EDITOR, ROLE_REDACTOR, ROLE_REDACTORJR, ROLE_BECARIOAUXILIAR, ROLE_MULTIMEDIA, ROLE_FLAGS_GET ] , methods: [GET]  }
+        - { path: ^/api/flags,         roles: [ ROLE_SUPER_ADMIN , ROLE_EDITOR, ROLE_FLAGS_CREATE ] , methods: [POST] }
+        - { path: ^/api/flags,         roles: [ ROLE_SUPER_ADMIN , ROLE_EDITOR, ROLE_FLAGS_EDIT ] , methods: [PUT]  }
+        - { path: ^/api/flags,         roles: [ ROLE_SUPER_ADMIN , ROLE_EDITOR, ROLE_FLAGS_DELETE ] , methods: [DELETE] }
+
+        - { path: ^/api/categories,         roles: [ ROLE_SUPER_ADMIN , ROLE_EDITOR, ROLE_REDACTOR, ROLE_REDACTORJR, ROLE_BECARIOAUXILIAR, ROLE_MULTIMEDIA, ROLE_CATEGORY_GET ] , methods: [GET]  }
+        - { path: ^/api/categories,         roles: [ ROLE_SUPER_ADMIN , ROLE_EDITOR, ROLE_CATEGORY_CREATE ] , methods: [POST] }
+        - { path: ^/api/categories,         roles: [ ROLE_SUPER_ADMIN , ROLE_EDITOR, ROLE_CATEGORY_EDIT ] , methods: [PUT]  }
+        - { path: ^/api/categories,         roles: [ ROLE_SUPER_ADMIN , ROLE_EDITOR, ROLE_CATEGORY_DELETE ] , methods: [DELETE] }
+
+        - { path: ^/api/blogs,         roles: [ ROLE_SUPER_ADMIN , ROLE_EDITOR, ROLE_BLOG_GET ] , methods: [GET]  }
+        - { path: ^/api/blogs,         roles: [ ROLE_SUPER_ADMIN , ROLE_EDITOR, ROLE_BLOG_CREATE ] , methods: [POST] }
+        - { path: ^/api/blogs,         roles: [ ROLE_SUPER_ADMIN , ROLE_EDITOR, ROLE_BLOG_EDIT ] , methods: [PUT]  }
+        - { path: ^/api/blogs,         roles: [ ROLE_SUPER_ADMIN , ROLE_EDITOR, ROLE_BLOG_DELETE ] , methods: [DELETE] }
+
+        - { path: ^/api/columna,         roles: [ ROLE_SUPER_ADMIN , ROLE_EDITOR, ROLE_REDACTOR, ROLE_REDACTORJR, ROLE_BECARIOAUXILIAR, ROLE_MULTIMEDIA, ROLE_COLUMN_GET ] , methods: [GET]  }
+        - { path: ^/api/columna,         roles: [ ROLE_SUPER_ADMIN , ROLE_EDITOR, ROLE_COLUMN_CREATE ] , methods: [POST] }
+        - { path: ^/api/columna,         roles: [ ROLE_SUPER_ADMIN , ROLE_EDITOR, ROLE_COLUMN_EDIT ] , methods: [PUT]  }
+        - { path: ^/api/columna,         roles: [ ROLE_SUPER_ADMIN , ROLE_EDITOR, ROLE_COLUMN_DELETE ] , methods: [DELETE] }
+
+        - { path: ^/api/tag,         roles: [ ROLE_SUPER_ADMIN , ROLE_EDITOR, ROLE_TAG_CREATE ] , methods: [POST] }
+        - { path: ^/api/tag,         roles: [ ROLE_SUPER_ADMIN , ROLE_EDITOR, ROLE_TAG_EDIT ] , methods: [PUT]  }
+        - { path: ^/api/tag,         roles: [ ROLE_SUPER_ADMIN , ROLE_EDITOR, ROLE_TAG_DELETE ] , methods: [DELETE] }
+
+        - { path: ^/api/parallax,         roles: [ ROLE_SUPER_ADMIN , ROLE_EDITOR, ROLE_COMERCIAL, ROLE_PARALLAX_GET ] , methods: [GET]  }
+        - { path: ^/api/parallax,         roles: [ ROLE_SUPER_ADMIN , ROLE_EDITOR, ROLE_COMERCIAL, ROLE_PARALLAX_EDIT ] , methods: [PUT] }
+
+    role_hierarchy:
+        ROLE_SUPER_ADMIN: [ROLE_SUPER_ADMIN,ROLE_EDITOR, ROLE_REDACTOR, ROLE_REDACTORJR, ROLE_BECARIOAUXILIAR, ROLE_MULTIMEDIA, ROLE_COMERCIAL ]

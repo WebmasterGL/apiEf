@@ -1,0 +1,27 @@
+BackendBundle\Entity\EeEncuestadora:
+    type: entity
+    table: ee_encuestadora
+    uniqueConstraints:
+        id_UNIQUE:
+            columns:
+                - id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        encuestadora:
+            type: string
+            nullable: true
+            length: 120
+            options:
+                fixed: false
+        estatus:
+            type: boolean
+            nullable: true
+    lifecycleCallbacks: {  }

@@ -1,0 +1,24 @@
+backend_getAll:
+      path: /{idcategory}
+      defaults: { _controller: BackendBundle:Category:getAll, idcategory: NULL }
+      methods: GET
+
+backend_create:
+      path: /
+      defaults: { _controller: BackendBundle:Category:create}
+      methods: POST
+
+backend_update:
+      path: /{id}
+      defaults: { _controller: BackendBundle:Category:categories}
+      methods: PUT
+
+backend_delete:
+      path: /{id}
+      defaults: { _controller: BackendBundle:Category:delete}
+      methods: DELETE
+
+backend_slug:
+      path: /slug/{s1}/{s2}
+      defaults: { _controller: BackendBundle:Category:slug, s1: NULL, s2: NULL }
+      methods: POST

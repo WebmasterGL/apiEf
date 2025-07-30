@@ -1,0 +1,89 @@
+BackendBundle\Entity\Video:
+    type: entity
+    table: video
+    uniqueConstraints:
+        UNIQ_7CC7DA2C989D9B62:
+            columns:
+                - slug
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        createdAt:
+            type: datetime
+            nullable: false
+            column: created_at
+        updatedAt:
+            type: datetime
+            nullable: false
+            column: updated_at
+        description:
+            type: string
+            nullable: true
+            length: 16000
+            options:
+                fixed: false
+        slug:
+            type: string
+            nullable: false
+            length: 128
+            options:
+                fixed: false
+        title:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        videoName:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: video_name
+        thumbName:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: thumb_name
+        source:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        mediaId:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: media_id
+    manyToMany:
+        tag:
+            targetEntity: Tag
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: video
+            joinTable:
+                name: video_tag
+                joinColumns:
+                    -
+                        name: video_id
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    -
+                        name: tag_id
+                        referencedColumnName: id
+            orderBy: null
+    lifecycleCallbacks: {  }

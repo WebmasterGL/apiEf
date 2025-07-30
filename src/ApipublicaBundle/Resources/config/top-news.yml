@@ -1,0 +1,6 @@
+apipublica_get_top_news:
+    path:   /
+    defaults: { _controller: ApipublicaBundle:TopNews:getTopNews }
+    methods: GET
+
+

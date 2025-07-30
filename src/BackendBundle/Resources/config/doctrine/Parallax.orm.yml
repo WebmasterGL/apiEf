@@ -1,0 +1,24 @@
+BackendBundle\Entity\Parallax:
+    type: entity
+    table: parallax
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        structure:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        updatedAt:
+            type: datetime
+            nullable: true
+            column: updated_at
+    lifecycleCallbacks: {  }

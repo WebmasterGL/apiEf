@@ -1,0 +1,38 @@
+{
+    "rules": [
+        {
+            "class": "TextNodeRule"
+        },
+        {
+            "class": "PassThroughRule",
+            "selector": "html"
+        },
+        {
+            "class": "PassThroughRule",
+            "selector": "head"
+        },
+        {
+            "class": "PassThroughRule",
+            "selector": "script"
+        },
+        {
+            "class": "PassThroughRule",
+            "selector": "body"
+        }, 
+        {
+            "class": "VideoRule",
+            "selector": "video",
+            "properties": {
+                "video.url": {
+                    "type": "string",
+                    "selector": "source",
+                    "attribute": "src"
+                }
+            }
+        }, 
+        {
+                "class": "ParagraphRule",
+                "selector" : "span"
+        }
+    ]
+}

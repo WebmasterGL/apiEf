@@ -1,0 +1,14 @@
+apipublica_vimeo_list:
+    path:   /list/{page}/{sizepage}
+    defaults: { _controller: ApipublicaBundle:Vimeo:getList, page:1, sizepage:10 }
+    methods: GET
+
+apipublica_vimeo_search:
+    path:   /search/{query}/{page}/{sizepage}
+    defaults: { _controller: ApipublicaBundle:Vimeo:search, page:1, sizepage:10  }
+    methods: GET
+
+apipublica_vimeo_id:
+    path:   /videoid/{videoID}
+    defaults: { _controller: ApipublicaBundle:Vimeo:getVideoId }
+    methods: GET

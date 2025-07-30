@@ -1,0 +1,56 @@
+apipublica_sitemap_index:
+    path:  /sitemap.{_format}
+    defaults: { _controller: ApipublicaBundle:Sitemap:index, _format: xml }
+    methods: GET
+    
+apipublic_sitemap_current_index:
+    path:  /sitemap-current.{_format}
+    defaults: { _controller: ApipublicaBundle:Sitemap:current, _format: xml }
+    methods: GET
+
+apipublica_subsitemap:
+    path:  /sitemap-{month}-{year}.{formato}
+    defaults: { _controller: ApipublicaBundle:Sitemap:subsitemap }
+    methods: GET
+    requirements:
+        month:  \d+
+        year:   \d+
+
+
+apipublic_sitemap_google_news:
+    path:  /sitemap-google-news.{_format}
+    defaults: { _controller: ApipublicaBundle:Sitemap:googleNews, _format: xml }
+    methods: GET
+
+apipublic_subsitemap_articles:
+    path:  /sitemap/articles-{year}-{month}.{formato}
+    defaults: { _controller: ApipublicaBundle:Sitemap:subsitemapArticles }
+    methods: GET
+    requirements:
+        month:  \d+
+        year:   \d+
+
+apipublic_sitemap_cell:
+    path:  /sitemap/cell
+    defaults: { _controller: ApipublicaBundle:Sitemap:cell }
+    methods: GET
+
+apipublic_sitemap_cellmedia:
+    path:  /sitemap/cellmedia
+    defaults: { _controller: ApipublicaBundle:Sitemap:cellMedia }
+    methods: GET
+
+apipublic_sitemap_alexa:
+    path:  /sitemap/alexa
+    defaults: { _controller: ApipublicaBundle:Sitemap:alexa }
+    methods: GET
+
+apipublic_xalok_sitemap_generator:
+    path:  /sitemap/xalokSitemapGeneration
+    defaults: { _controller: ApipublicaBundle:Sitemap:xalokSitemapsGeneration }
+    methods: GET
+
+apipublic_sitemap_google_narrative_news:
+    path:  /sitemap/googleNarrativeNews
+    defaults: { _controller: ApipublicaBundle:Sitemap:googleNarrativeNews }
+    methods: GET

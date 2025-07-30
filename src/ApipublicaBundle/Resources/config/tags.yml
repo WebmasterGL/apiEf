@@ -1,0 +1,6 @@
+apipublica_get_tag:
+    path:   /{id}
+    defaults: { _controller: ApipublicaBundle:Tag:getTag, id: null }
+    methods: GET
+
+

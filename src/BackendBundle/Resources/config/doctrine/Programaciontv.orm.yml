@@ -1,0 +1,32 @@
+BackendBundle\Entity\Programaciontv:
+    type: entity
+    table: programaciontv
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        desde:
+            type: time
+            nullable: true
+        hasta:
+            type: time
+            nullable: true
+        programa:
+            type: string
+            nullable: true
+            length: 200
+            options:
+                fixed: false
+        dia:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

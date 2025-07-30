@@ -1,0 +1,15 @@
+programacion_tv_index:
+    path:     /{id}
+    defaults: { _controller: "BackendBundle:Programacion:index", id:NULL }
+    methods:  GET
+
+programacion_tv_new:
+    path:     /
+    defaults: { _controller: "BackendBundle:Programacion:new" }
+    methods:  [POST]
+
+
+programacion_tv_update:
+    path:     /{id}
+    defaults: { _controller: "BackendBundle:Programacion:update", id:NULL }
+    methods:  [PUT]

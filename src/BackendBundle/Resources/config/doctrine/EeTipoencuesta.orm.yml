@@ -1,0 +1,27 @@
+BackendBundle\Entity\EeTipoencuesta:
+    type: entity
+    table: ee_tipoencuesta
+    uniqueConstraints:
+        id_UNIQUE:
+            columns:
+                - id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        tipoencuesta:
+            type: string
+            nullable: true
+            length: 120
+            options:
+                fixed: false
+        estatus:
+            type: boolean
+            nullable: true
+    lifecycleCallbacks: {  }

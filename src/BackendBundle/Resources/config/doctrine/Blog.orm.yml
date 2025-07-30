@@ -1,0 +1,95 @@
+BackendBundle\Entity\Blog:
+    type: entity
+    table: blog
+    indexes:
+        IDX_C015514312469DE2:
+            columns:
+                - category_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        createdAt:
+            type: datetime
+            nullable: false
+            column: created_at
+        updatedAt:
+            type: datetime
+            nullable: false
+            column: updated_at
+        title:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        description:
+            type: string
+            nullable: true
+            length: 4096
+            options:
+                fixed: false
+        identidad:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        imageName:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: image_name
+        active:
+            type: boolean
+            nullable: true
+        slug:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        metadatos:
+            type: string
+            nullable: true
+            length: 500
+            options:
+                fixed: false
+    manyToOne:
+        category:
+            targetEntity: Category
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                category_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    manyToMany:
+        author:
+            targetEntity: Author
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: blog
+            joinTable:
+                name: blog_authors
+                joinColumns:
+                    -
+                        name: blog_id
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    -
+                        name: author_id
+                        referencedColumnName: id
+            orderBy: null
+    lifecycleCallbacks: {  }

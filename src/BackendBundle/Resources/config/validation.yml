@@ -1,0 +1,184 @@
+BackendBundle\Entity\Columna:
+    properties:
+         nombreSistema:
+             - NotBlank: { message: "El nombre de Sistema no puede estar vacío"}
+         slug:
+             - NotBlank: { message: "El slug no puede estar vacío"}
+         authors:
+             - Count:
+                  min: 1
+                  minMessage: "La Columna debe de tener por lo menos un Autor ó el que enviaste no existe"
+BackendBundle\Entity\Blog:
+    properties:
+         title:
+             - NotBlank: { message: "El campo título no puede estar vacío"}
+         description:
+             - NotBlank: { message: "La descripcion no puede estar vacía"}
+         slug:
+             - NotBlank: { message: "El slug no puede estar vacío"}
+#         author:
+#             - Count:
+#                  min: 1
+#                  minMessage: "El blog debe de tener por lo menos un Autor ó el que enviaste no existe"
+BackendBundle\Entity\WfUser:
+    properties:
+         firstName:
+              - NotBlank: { message: "El nombre no puede estar vacío"}
+         email:
+              - NotBlank: { message: "El email no puede estar vacío"}
+         password:
+              - NotBlank: { message: "El password no puede estar vacío"}
+         roles:
+             - Count:
+                  min: 2
+                  minMessage: "El usuario debe tener al menos un perfil"
+              #- Length:
+                  #min: 2
+                  #minMessage: "El usuario debe de tener por lo menos 2 roles"
+#         firstName:
+#              - NotBlank: { message: "El nombre no puede estar vacío"}
+#         aPaterno:
+#              - NotBlank: { message: "El Apellido Paterno no puede estar vacío"}
+
+BackendBundle\Entity\Image:
+    properties:
+         title:
+             - NotBlank: { message: "El titulo no puede estar vacío"}
+             - Length:
+                  min: 2
+                  minMessage: "El titulo debe de tener mas de 2 caracteres"
+         description:
+              - NotBlank: { message: "La description no puede estar vacía"}
+         tag:
+              - Count:
+                    min: 1
+                    minMessage: "La imagen debe de tener por lo menos una Etiqueta"
+
+BackendBundle\Entity\Category:
+    properties:
+         parentId:
+             - NotBlank: { message: "El id padre no puede estar vacío"}
+         title:
+             - NotBlank: { message: "El titulo no puede estar vacío"}
+             - Length:
+                  min: 2
+                  minMessage: "El titulo debe de tener mas de 2 caracteres"
+         image:
+             - NotBlank: { message: "La imagen no puede estar vacía"}
+         slug:
+              - NotBlank: { message: "El Slug no puede estar vacío"}
+         portalId:
+              - NotBlank: { message: "El portal id no puede ser vacío"}
+         description:
+              - NotBlank: { message: "La descripción no puede estar vacía"}
+
+BackendBundle\Entity\Flags:
+    properties:
+         name:
+             - NotBlank: { message: "El nombre no puede estar vacío"}
+             - Length:
+                  min: 2
+                  minMessage: "El nombre debe de tener mas de 2 caracteres"
+         imageUrl:
+             - NotBlank: { message: "La url no puede estar vacío"}
+             - Length:
+                  min: 20
+                  minMessage: "La url debe de tener mas de 20 caracteres"
+
+BackendBundle\Entity\Page:
+    properties:
+         title:
+             - NotBlank: { message: "El Titulo no puede estar vacío"}
+             - Length:
+                  min: 1
+                  minMessage: "El tÍtulo debe de tener al menos  un caracter"
+         categoryId:
+             - NotBlank: { message: "La nota debe tener una  seccion principal"}
+         author:
+             - Count:
+                  min: 1
+                  minMessage: "La nota debe de tener por lo menos un Autor"
+
+         #mainImage:
+         #    - NotBlank: { message: "La imagenPrincipal No puede estar vacia"}
+         #    - Type:
+         #         type: BackendBundle\Entity\Image
+         #         message: "Debe ser del tipo image"
+BackendBundle\Entity\Author:
+    properties:
+         name:
+              - NotBlank: { message: "El nombre no puede estar vacío"}
+         email:
+              - NotBlank: { message: "El email no puede estar vacío"}
+         active:
+              - NotBlank: { message: "El status no puede estar vacío"}
+         corresponsal:
+              - NotBlank: { message: "El corresponsal no puede estar vacío"}
+         sexo:
+              - NotBlank: { message: "El sexo no puede estar vacío"}
+         slug:
+              - NotBlank: { message: "El slug no puede estar vacío"}
+
+BackendBundle\Entity\Tag:
+    properties:
+         title:
+              - NotBlank: { message: "La etiqueta debe llevar un nombre"}
+
+BackendBundle\Entity\Cover:
+    properties:
+         createdAt:
+             - NotBlank: { message: "La fecha de creación no puede estar vacío"}
+         updatedAt:
+             - NotBlank: { message: "La fecha de actualización no puede estar vacía"}
+         layoutId:
+             - NotBlank: { message: "El layout no puede estar vacío"}
+         creatorId:
+             - NotBlank: { message: "El id del usuario creador no puede estar vacío"}
+         publisherId:
+             - NotBlank: { message: "El id de quien publica no puede estar vacío"}
+         status:
+             - NotBlank: { message: "El status no puede estar vacío"}
+
+BackendBundle\Entity\Portada:
+    properties:
+         name:
+             - NotBlank: { message: "El nombre no puede estar vacio"}
+         category:
+             - NotBlank: { message: "La portada debe tener una categoria"}
+         status:
+             - NotBlank: { message: "El status no puede estar vacío"}
+         createdBy:
+             - NotBlank: { message: "El usuario creador no puede estar vacío"}
+
+BackendBundle\Entity\PortadaFolds:
+     properties:
+          idportada:
+              - NotBlank: { message: "El fold debe tener una portada"}
+          orden:
+              - NotBlank: { message: "El orden no puede estar vacío"}
+          status:
+              - NotBlank: { message: "El status no puede estar vacío"}
+          content:
+              - NotBlank: { message: "El contenido no puede estar vacío"}
+
+BackendBundle\Entity\Folds:
+     properties:
+          idtipo:
+              - NotBlank: { message: "El fold debe tener un tipo"}
+          category:
+              - NotBlank: { message: "El fold debe tener una categoria"}
+          descripcion:
+              - NotBlank: { message: "El fold debe tener una descripcion"}
+
+BackendBundle\Entity\Programacion:
+     properties:
+          name:
+              - NotBlank: { message: "El nombre del programa no puede estar vacío"}
+          category:
+              - NotBlank: { message: "La programación debe contener una categoría"}
+          description:
+              - NotBlank: { message: "La programación debe tener una descripción"}
+          active:
+              - NotBlank: { message: "La programación debe tener un status"}
+          colorHexa:
+              - NotBlank: { message: "La programación debe tener un color hexadecimal"}

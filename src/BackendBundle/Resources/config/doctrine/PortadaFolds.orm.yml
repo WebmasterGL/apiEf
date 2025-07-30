@@ -1,0 +1,107 @@
+BackendBundle\Entity\PortadaFolds:
+    type: entity
+    table: portada_folds
+    indexes:
+        IDX_856D18A342DC3AAA:
+            columns:
+                - idportada
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        status:
+            type: string
+            nullable: false
+            length: 20
+            options:
+                fixed: false
+        content:
+            type: text
+            nullable: true
+            length: 4294967295
+            options:
+                fixed: false
+        createdAt:
+            type: datetime
+            nullable: false
+            column: created_at
+        updatedAt:
+            type: datetime
+            nullable: false
+            column: updated_at
+            nullable: true
+        publishedAt:
+            type: datetime
+            nullable: true
+            column: published_at
+        nextPublishedAt:
+            type: datetime
+            nullable: true
+            column: next_published_at
+        orden:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+        code:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        visible:
+            type: boolean
+            nullable: false
+        cloneId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+    manyToOne:
+        idportada:
+            targetEntity: Portada
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idportada:
+                    referencedColumnName: id
+            orphanRemoval: false
+        idfold:
+            targetEntity: Folds
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idfold:
+                    referencedColumnName: id
+            orphanRemoval: false
+        updatedBy:
+            targetEntity: WfUser
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                updated_by_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        editingBy:
+            targetEntity: WfUser
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                editing_by_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,108 @@
+BackendBundle\Entity\EeEncuesta:
+    type: entity
+    table: ee_encuesta
+    indexes:
+        fk_ee_encuesta_ee_tipoencuesta_idx:
+            columns:
+                - ee_tipoencuesta_id
+        fk_ee_encuesta_ee_candidato1_idx:
+            columns:
+                - ee_candidato_id
+        fk_ee_encuesta_ee_encuestadora1_idx:
+            columns:
+                - ee_encuestadora_id
+    uniqueConstraints:
+        id_UNIQUE:
+            columns:
+                - id
+        UNIQ_7587D2D53B5A05:
+            columns:
+                - ee_candidato_id
+        UNIQ_7587D2DEDDCF1C:
+            columns:
+                - ee_encuestadora_id
+        UNIQ_7587D2DC648C837:
+            columns:
+                - ee_tipoencuesta_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        prcBruto:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+            column: prc_bruto
+        efectivo:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                default: '0'
+        periodoini:
+            type: datetime
+            nullable: true
+        periodofin:
+            type: datetime
+            nullable: true
+        fchcaptura:
+            type: datetime
+            nullable: true
+            column: fchCaptura
+        metodologia:
+            type: string
+            nullable: true
+            length: 50
+            options:
+                fixed: false
+        muestra:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        prcError:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+            column: prc_error
+    manyToOne:
+        eeCandidato:
+            targetEntity: EeCandidato
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                ee_candidato_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        eeEncuestadora:
+            targetEntity: EeEncuestadora
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                ee_encuestadora_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        eeTipoencuesta:
+            targetEntity: EeTipoencuesta
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                ee_tipoencuesta_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

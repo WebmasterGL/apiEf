@@ -1,0 +1,74 @@
+XalokBundle\Entity\Audio:
+    type: entity
+    table: audio
+    uniqueConstraints:
+        UNIQ_187D3695989D9B62:
+            columns:
+                - slug
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        createdAt:
+            type: datetime
+            nullable: false
+            column: created_at
+        updatedAt:
+            type: datetime
+            nullable: false
+            column: updated_at
+        slug:
+            type: string
+            nullable: false
+            length: 128
+            options:
+                fixed: false
+        title:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        description:
+            type: string
+            nullable: true
+            length: 16000
+            options:
+                fixed: false
+        audioName:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: audio_name
+        duration:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+    manyToMany:
+        tag:
+            targetEntity: Tag
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: audio
+            joinTable:
+                name: audio_tag
+                joinColumns:
+                    -
+                        name: audio_id
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    -
+                        name: tag_id
+                        referencedColumnName: id
+            orderBy: null
+    lifecycleCallbacks: {  }

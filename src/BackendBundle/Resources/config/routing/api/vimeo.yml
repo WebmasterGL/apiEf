@@ -1,0 +1,25 @@
+backend_vimeo_upload:
+    path:   /upload
+    defaults: { _controller: BackendBundle:Vimeo:uploadVideo }
+    methods: POST
+
+backend_vimeo_add_thumbnail:
+    path:   /thumbnail
+    defaults: { _controller: BackendBundle:Vimeo:addThumbnail }
+    methods: POST
+
+backend_vimeo_search:
+    path:   /search/{query}/{page}/{sizepage}
+    defaults: { _controller: BackendBundle:Vimeo:search, page:1, sizepage:10  }
+    methods: GET
+
+backend_vimeo_list:
+    path:   /list/{page}/{sizepage}
+    defaults: { _controller: BackendBundle:Vimeo:getList, page:1, sizepage:10 }
+    methods: GET
+
+backend_vimeo_id:
+    path:   /videoid/{videoID}
+    defaults: { _controller: BackendBundle:Vimeo:getVideoId }
+    methods: GET
+

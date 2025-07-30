@@ -1,0 +1,38 @@
+BackendBundle\Entity\PageMetadata:
+    type: entity
+    table: page_metadata
+    uniqueConstraints:
+        UNIQ_CF8B3334DE6FDF9A:
+            columns:
+                - checksum
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        allowedModules:
+            type: json_array
+            nullable: true
+            length: 16777215
+            options:
+                fixed: false
+            column: allowed_modules
+        newModules:
+            type: json_array
+            nullable: true
+            length: 16777215
+            options:
+                fixed: false
+            column: new_modules
+        checksum:
+            type: string
+            nullable: true
+            length: 64
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

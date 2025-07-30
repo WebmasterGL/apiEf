@@ -1,0 +1,25 @@
+#portada_fold_get:
+#    path:     /{id}
+#    defaults: { _controller: "BackendBundle:Folds:getPortadaFoldUpdate", id: null }
+#    methods:  GET
+
+portada_fold_edit:
+    path:     /edit/{idPortada}/{idFold}
+    defaults: { _controller: "BackendBundle:PortadaFold:edit", action: edit }
+    methods:  [GET]
+
+portada_fold_editall:
+    path:     /{idPortada}/{idFold}
+    defaults: { _controller: "BackendBundle:PortadaFold:actionPF", idPortada: null, idFold: null }
+    methods:  [PUT]
+
+portada_fold_set_status:
+    path:   /{idPortada}/{idFold}/{status}/{code}
+    defaults: { _controller: "BackendBundle:PortadaFold:setFoldStatus", idPortada: NULL, idFold: NULL, status: null, code: null }
+    methods: PUT
+
+portada_fold_cloning:
+    path:     /clone
+    defaults: { _controller: "BackendBundle:PortadaFold:cloning" }
+    methods:  [POST]
+

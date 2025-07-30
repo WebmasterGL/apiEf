@@ -1,0 +1,15 @@
+BackendBundle\Entity\TopNews:
+    type: entity
+    table: null
+    repositoryClass: BackendBundle\Repository\TopNewsRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        slug:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }

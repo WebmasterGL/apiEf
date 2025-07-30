@@ -1,0 +1,137 @@
+backend_homepage:
+    path:     /
+    defaults: { _controller: BackendBundle:Default:index }
+
+backend_test:
+    path:   /test
+    defaults: { _controller: BackendBundle:Default:test }
+    methods: GET
+
+backend_api_user_login:
+      path: /login
+      defaults: { _controller: BackendBundle:User:login}
+      methods: POST
+
+backend_api_user_logout:
+      path: /logout
+      defaults: { _controller: BackendBundle:User:logout}
+      methods: GET
+
+backend_api_user_home:
+      path: /home
+      defaults: { _controller: BackendBundle:User:home}
+      methods: GET
+
+backend_api_user_getRolls:
+      path: /users/paths
+      defaults: { _controller: BackendBundle:User:getRolls}
+      methods: GET
+
+backend_api_user_getAllRoles:
+      path: /users/roles
+      defaults: { _controller: BackendBundle:User:getAllRoles}
+      methods: GET
+
+backend_api_user_getProfile:
+      path: /users/profile/{profile}
+      defaults: { _controller: BackendBundle:User:getProfile, profile: null}
+      methods: GET
+
+backend_api_user_getRolesTranslated:
+      path: /users/roles/rolestranslated
+      defaults: { _controller: BackendBundle:User:getRolesTranslated}
+      methods: GET
+
+backend_api_user_getPermissions:
+      path: /users/permissions/{id}
+      defaults: { _controller: BackendBundle:User:getPermissions, id: 0}
+      methods: GET
+
+backend_api_user_permsnotassigned:
+      path: /users/permsnotassigned
+      defaults: { _controller: BackendBundle:User:getPermsNotAssigned}
+      methods: GET
+
+backend_api_user:
+    resource: "@BackendBundle/Resources/config/routing/api/user.yml"
+    prefix: /users
+
+backend_api_category:
+    resource: "@BackendBundle/Resources/config/routing/api/category.yml"
+    prefix: /categories
+
+backend_api_author:
+    resource: "@BackendBundle/Resources/config/routing/api/author.yml"
+    prefix: /authors
+
+backend_api_search:
+    resource: "@BackendBundle/Resources/config/routing/api/search.yml"
+    prefix: /search
+
+backend_api_page:
+    resource: "@BackendBundle/Resources/config/routing/api/page.yml"
+    prefix: /pages
+
+backend_api_tag:
+    resource: "@BackendBundle/Resources/config/routing/api/tag.yml"
+    prefix: /tags
+
+backend_api_flags:
+    resource: "@BackendBundle/Resources/config/routing/api/flags.yml"
+    prefix: /flags
+
+backend_api_image:
+    resource: "@BackendBundle/Resources/config/routing/api/image.yml"
+    prefix: /image
+
+backend_google:
+    resource: "@BackendBundle/Resources/config/routing/api/googleapi.yml"
+    prefix: /google
+
+backend_vimeo:
+    resource: "@BackendBundle/Resources/config/routing/api/vimeo.yml"
+    prefix: /vimeo
+
+backend_columna:
+    resource: "@BackendBundle/Resources/config/routing/api/columna.yml"
+    prefix:   /columna
+
+backend_blog:
+    resource: "@BackendBundle/Resources/config/routing/api/blog.yml"
+    prefix:   /blog
+
+backend_api_portada:
+    resource: "@BackendBundle/Resources/config/routing/api/portadas.yml"
+    prefix:   /portadas
+
+backend_api_folds:
+    resource: "@BackendBundle/Resources/config/routing/api/folds.yml"
+    prefix:   /folds
+
+backend_parallax:
+    resource: "@BackendBundle/Resources/config/routing/api/parallax.yml"
+    prefix:   /parallax
+
+backend_tipofolds:
+    resource: "@BackendBundle/Resources/config/routing/api/tipofolds.yml"
+    prefix:   /tipofolds
+
+backend_portada_fold:
+    resource: "@BackendBundle/Resources/config/routing/api/portada-fold.yml"
+    prefix:   /portadas-folds
+
+backend_home_fold:
+    resource: "@BackendBundle/Resources/config/routing/api/home-fold.yml"
+    prefix:   /home-folds
+
+backend_programacion_tv:
+    resource: "@BackendBundle/Resources/config/routing/api/programacion-tv.yml"
+    prefix:   /programacion-tv
+
+backend_youtube:
+    resource: "@BackendBundle/Resources/config/routing/api/youtube.yml"
+    prefix: /youtube
+
+backend_bitacora_vs:
+    resource: "@BackendBundle/Resources/config/routing/api/bitacora-vs.yml"
+    prefix: /bitacora-vs    

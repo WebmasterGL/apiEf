@@ -1,0 +1,26 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_host: 10.10.28.33
+    database_port: null
+    database_name: bkp_ef
+    database_user: devps_cms
+    database_password: oG5F5ZwDC9
+    mailer_transport: smtp
+    mailer_host: 127.0.0.1
+    mailer_user: null
+    mailer_password: null
+    fos_elastica.host: 10.10.28.33
+    fos_elastica.port: 9200
+    apiKeyGooglePlaces: AIzaSyAAttUjYjwiiP4j5y_qpCom9UNFyVtzIWE
+    apiTokenVimeo: 0a975dfad158efbd05532a97a1b2f9d2
+    cdn: /mnt/nfs/var/nfs/uploads2
+    secret: vacio
+    api_publica_uri: NULL
+    host_uri: NULL
+
+    database_host2: 10.10.28.33
+    database_port2: null
+    database_name2: devps_cms
+    database_user2: devps_cms
+    database_password2: oG5F5ZwDC9
+    array_ips: [ '10.10.28.149','10.10.28.150','127.0.0.1']

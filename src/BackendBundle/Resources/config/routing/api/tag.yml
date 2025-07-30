@@ -1,0 +1,22 @@
+backend_get_tag:
+    path:   /{id}
+    defaults: { _controller: BackendBundle:Tag:getTag, id: null }
+    methods: GET
+
+backend_new_tag:
+    path:   /
+    defaults: { _controller: BackendBundle:Tag:newTag }
+    methods: POST
+
+backend_edit_tag:
+    path:   /{id}
+    defaults: { _controller: BackendBundle:Tag:editTag, id: null }
+    methods: PUT
+
+backend_delete_tag:
+    path:   /{id}
+    defaults: { _controller: BackendBundle:Tag:deleteTag, id: null }
+    methods: DELETE
+
+
+

@@ -1,0 +1,25 @@
+apipublica_rss:
+    path:       rss/
+    defaults: { _controller: ApipublicaBundle:Rss:index, _format:xml }
+    methods: GET
+    
+apipublica_instant_articles:
+    path:   rss/ia
+    defaults: {_controller: ApipublicaBundle:Instant:index, _format:xml }
+    methods: GET
+
+apipublica_rss_aef:
+    path:     rss/aef
+    defaults: { _controller: ApipublicaBundle:Rss:aef, _format:xml }
+    methods: GET
+    
+apipublica_rss_ttv:
+    path:     rss/ttv
+    defaults: { _controller: ApipublicaBundle:Rss:ttv, _format:xml }
+    methods: GET
+    
+apipublica_rss_opinion:
+    path:     rss/opinion
+    defaults: { _controller: ApipublicaBundle:Rss:opinion, _format:xml }
+    methods: GET
+

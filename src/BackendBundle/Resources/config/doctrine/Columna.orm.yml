@@ -1,0 +1,90 @@
+BackendBundle\Entity\Columna:
+    type: entity
+    table: columna
+    repositoryClass: BackendBundle\Repository\ColumnRepository
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        nombre:
+            type: string
+            nullable: true
+            length: 300
+            options:
+                fixed: false
+        slug:
+            type: string
+            nullable: true
+            length: 300
+            options:
+                fixed: false
+        nombreSistema:
+            type: string
+            nullable: true
+            length: 300
+            options:
+                fixed: false
+            column: nombre_sistema
+        active:
+            type: boolean
+            nullable: true
+        seo:
+            type: json_array
+            nullable: true
+            length: 16777215
+            options:
+                fixed: false
+        social:
+            type: json_array
+            nullable: true
+            length: 16777215
+            options:
+                fixed: false
+        createdAt:
+            type: datetime
+            nullable: false
+            column: created_at
+        updatedAt:
+            type: datetime
+            column: updated_at
+            nullable: true
+        activatedAt:
+            type: datetime
+            column: activated_at
+            nullable: true
+    manyToOne:
+        image:
+            targetEntity: Image
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                image_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    manyToMany:
+        authors:
+            targetEntity: Author
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: columna
+            joinTable:
+                name: columna_author
+                joinColumns:
+                    -
+                        name: columna_id
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    -
+                        name: author_id
+                        referencedColumnName: id
+            orderBy: null
+    lifecycleCallbacks: {  }

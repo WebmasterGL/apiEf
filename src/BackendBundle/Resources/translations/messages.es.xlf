@@ -1,0 +1,558 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="ROLE_SEARCH_GET">
+                            <source>ROLE_SEARCH_GET</source>
+                            <target>Búsqueda General</target>
+            </trans-unit>
+            <trans-unit id="ROLE_GOOGLE_SEARCH">
+                            <source>ROLE_GOOGLE_SEARCH</source>
+                            <target>Búsqueda de lugares en Google API</target>
+            </trans-unit>
+            <trans-unit id="ROLE_PAGE_PURGE">
+                                        <source>ROLE_PAGE_PURGE</source>
+                                        <target>Purga de Home</target>
+            </trans-unit>
+            <trans-unit id="ROLE_PAGE_GET">
+                            <source>ROLE_PAGE_GET</source>
+                            <target>Listado de Notas</target>
+            </trans-unit>
+            <trans-unit id="ROLE_PAGE_CREATE">
+                            <source>ROLE_PAGE_CREATE</source>
+                            <target>Nota Crear</target>
+            </trans-unit>
+            <trans-unit id="ROLE_PAGE_SLUG">
+                            <source>ROLE_PAGE_SLUG</source>
+                            <target>Obtener un slug de nota</target>
+            </trans-unit>
+            <trans-unit id="ROLE_PAGE_SLUGVALIDATE">
+                            <source>ROLE_PAGE_SLUGVALIDATE</source>
+                            <target>Valida un slug de nota</target>
+            </trans-unit>
+            <trans-unit id="ROLE_PAGE_EDIT">
+                            <source>ROLE_PAGE_EDIT</source>
+                            <target>Nota Editar</target>
+            </trans-unit>
+            <trans-unit id="ROLE_PAGE_PUBLISH">
+                            <source>ROLE_PAGE_PUBLISH</source>
+                            <target>Nota Publicar</target>
+            </trans-unit>
+            <trans-unit id="ROLE_PAGE_UNPUBLISH">
+                            <source>ROLE_PAGE_UNPUBLISH</source>
+                            <target>Nota Despublicar</target>
+            </trans-unit>
+            <trans-unit id="ROLE_PAGE_TRASH">
+                            <source>ROLE_PAGE_TRASH</source>
+                            <target>Nota Eliminar</target>
+            </trans-unit>
+            <trans-unit id="ROLE_COLUMNTEXT_GET">
+                            <source>ROLE_COLUMNTEXT_GET</source>
+                            <target>Listado de Texto Columna</target>
+            </trans-unit>
+            <trans-unit id="ROLE_COLUMNTEXT_CREATE">
+                            <source>ROLE_COLUMNTEXT_CREATE</source>
+                            <target>Columna Texto Crear</target>
+            </trans-unit>
+            <trans-unit id="ROLE_COLUMNTEXT_SLUG">
+                            <source>ROLE_COLUMNTEXT_SLUG</source>
+                            <target>Slug de Texto Columna</target>
+            </trans-unit>
+            <trans-unit id="ROLE_COLUMNTEXT_SLUGVALIDATE">
+                            <source>ROLE_COLUMNTEXT_SLUGVALIDATE</source>
+                            <target>Validar slug de Texto Columna</target>
+            </trans-unit>
+            <trans-unit id="ROLE_COLUMNTEXT_EDIT">
+                            <source>ROLE_COLUMNTEXT_EDIT</source>
+                            <target>Columna Texto editar</target>
+            </trans-unit>
+            <trans-unit id="ROLE_COLUMNTEXT_PUBLISH">
+                            <source>ROLE_COLUMNTEXT_PUBLISH</source>
+                            <target>Columna texto publicar</target>
+            </trans-unit>
+            <trans-unit id="ROLE_COLUMNTEXT_UNPUBLISH">
+                            <source>ROLE_COLUMNTEXT_UNPUBLISH</source>
+                            <target>Columna texto despublicar</target>
+            </trans-unit>
+            <trans-unit id="ROLE_COLUMNTEXT_TRASH">
+                            <source>ROLE_COLUMNTEXT_TRASH</source>
+                            <target>Columna texto eliminar</target>
+            </trans-unit>
+            <trans-unit id="ROLE_POSTBLOG_GET">
+                            <source>ROLE_POSTBLOG_GET</source>
+                            <target>Listado de Post de Blog</target>
+            </trans-unit>
+            <trans-unit id="ROLE_POSTBLOG_CREATE">
+                            <source>ROLE_POSTBLOG_CREATE</source>
+                            <target>Post crear</target>
+            </trans-unit>
+            <trans-unit id="ROLE_POSTBLOG_SLUG">
+                            <source>ROLE_POSTBLOG_SLUG</source>
+                            <target>Slug de Post de Blog</target>
+            </trans-unit>
+            <trans-unit id="ROLE_POSTBLOG_SLUGVALIDATE">
+                            <source>ROLE_POSTBLOG_SLUGVALIDATE</source>
+                            <target>Validar slug de Post de Blog</target>
+            </trans-unit>
+            <trans-unit id="ROLE_POSTBLOG_EDIT">
+                            <source>ROLE_POSTBLOG_EDIT</source>
+                            <target>Post editar</target>
+            </trans-unit>
+            <trans-unit id="ROLE_POSTBLOG_PUBLISH">
+                            <source>ROLE_POSTBLOG_PUBLISH</source>
+                            <target>Post publicar</target>
+            </trans-unit>
+            <trans-unit id="ROLE_POSTBLOG_UNPUBLISH">
+                            <source>ROLE_POSTBLOG_UNPUBLISH</source>
+                            <target>Post despublicar</target>
+            </trans-unit>
+            <trans-unit id="ROLE_POSTBLOG_TRASH">
+                            <source>ROLE_POSTBLOG_TRASH</source>
+                            <target>Post eliminar</target>
+            </trans-unit>
+            <trans-unit id="ROLE_IMAGE_GET">
+                            <source>ROLE_IMAGE_GET</source>
+                            <target>Listado de Fotos</target>
+            </trans-unit>
+            <trans-unit id="ROLE_IMAGE_CREATE">
+                            <source>ROLE_IMAGE_CREATE</source>
+                            <target>Foto subir</target>
+            </trans-unit>
+            <trans-unit id="ROLE_IMAGE_EDIT">
+                            <source>ROLE_IMAGE_EDIT</source>
+                            <target>Foto editar</target>
+            </trans-unit>
+            <trans-unit id="ROLE_IMAGE_DELETE">
+                            <source>ROLE_IMAGE_DELETE</source>
+                            <target>Foto eliminar</target>
+            </trans-unit>
+            <trans-unit id="ROLE_VIMEO_GET">
+                            <source>ROLE_VIMEO_GET</source>
+                            <target>Listado de Videos</target>
+            </trans-unit>
+            <trans-unit id="ROLE_VIMEO_CREATE">
+                            <source>ROLE_VIMEO_CREATE</source>
+                            <target>Video Subir</target>
+            </trans-unit>
+            <trans-unit id="ROLE_VIMEO_EDIT">
+                            <source>ROLE_VIMEO_EDIT</source>
+                            <target>Video editar</target>
+            </trans-unit>
+            <trans-unit id="ROLE_VIMEO_PUBLISH">
+                            <source>ROLE_VIMEO_PUBLISH</source>
+                            <target>Video publicar</target>
+            </trans-unit>
+            <trans-unit id="ROLE_VIMEO_UNPUBLISH">
+                            <source>ROLE_VIMEO_UNPUBLISH</source>
+                            <target>Video despublicar</target>
+            </trans-unit>
+            <trans-unit id="ROLE_VIMEO_DELETE">
+                            <source>ROLE_VIMEO_DELETE</source>
+                            <target>Video eliminar</target>
+            </trans-unit>
+            <trans-unit id="ROLE_PHOTOGALLERY_GET">
+                            <source>ROLE_PHOTOGALLERY_GET</source>
+                            <target>Listado de Fotogalerías</target>
+            </trans-unit>
+            <trans-unit id="ROLE_PHOTOGALLERY_CREATE">
+                            <source>ROLE_PHOTOGALLERY_CREATE</source>
+                            <target>Fotogalería crear</target>
+            </trans-unit>
+            <trans-unit id="ROLE_PHOTOGALLERY_EDIT">
+                            <source>ROLE_PHOTOGALLERY_EDIT</source>
+                            <target>Fotogalería editar</target>
+            </trans-unit>
+            <trans-unit id="ROLE_PHOTOGALLERY_PUBLISH">
+                            <source>ROLE_PHOTOGALLERY_PUBLISH</source>
+                            <target>Fotogalería publicar</target>
+            </trans-unit>
+             <trans-unit id="ROLE_PHOTOGALLERY_UNPUBLISH">
+                            <source>ROLE_PHOTOGALLERY_UNPUBLISH</source>
+                            <target>Fotogalería despublicar</target>
+             </trans-unit>
+            <trans-unit id="ROLE_PHOTOGALLERY_DELETE">
+                            <source>ROLE_PHOTOGALLERY_DELETE</source>
+                            <target>Fotogalería borrar</target>
+            </trans-unit>
+            <trans-unit id="ROLE_STATICPAGE_GET">
+                            <source>ROLE_STATICPAGE_GET</source>
+                            <target>Listado de Páginas estáticas</target>
+            </trans-unit>
+            <trans-unit id="ROLE_STATICPAGE_CREATE">
+                            <source>ROLE_STATICPAGE_CREATE</source>
+                            <target>Página estática crear</target>
+            </trans-unit>
+            <trans-unit id="ROLE_STATICPAGE_EDIT">
+                            <source>ROLE_STATICPAGE_EDIT</source>
+                            <target>Página estática editar</target>
+            </trans-unit>
+            <trans-unit id="ROLE_STATICPAGE_PUBLISH">
+                            <source>ROLE_STATICPAGE_PUBLISH</source>
+                            <target>Página estática publicar</target>
+            </trans-unit>
+            <trans-unit id="ROLE_STATICPAGE_UNPUBLISH">
+                            <source>ROLE_STATICPAGE_UNPUBLISH</source>
+                            <target>Página estática despublicar</target>
+            </trans-unit>
+            <trans-unit id="ROLE_STATICPAGE_DELETE">
+                            <source>ROLE_STATICPAGE_DELETE</source>
+                            <target>Página estática borrar</target>
+            </trans-unit>
+            <trans-unit id="ROLE_ENTRADAAGENDA_GET">
+                            <source>ROLE_ENTRADAAGENDA_GET</source>
+                            <target>Listado de Entrada Agenda</target>
+            </trans-unit>
+            <trans-unit id="ROLE_ENTRADAAGENDA_CREATE">
+                            <source>ROLE_ENTRADAAGENDA_CREATE</source>
+                            <target>Agenda crear</target>
+            </trans-unit>
+            <trans-unit id="ROLE_ENTRADAAGENDA_EDIT">
+                            <source>ROLE_ENTRADAAGENDA_EDIT</source>
+                            <target>Agenda editar</target>
+            </trans-unit>
+            <trans-unit id="ROLE_ENTRADAAGENDA_PUBLISH">
+                            <source>ROLE_ENTRADAAGENDA_PUBLISH</source>
+                            <target>Agenda publicar</target>
+            </trans-unit>
+            <trans-unit id="ROLE_ENTRADAAGENDA_DELETE">
+                            <source>ROLE_ENTRADAAGENDA_DELETE</source>
+                            <target>Agenda borrar</target>
+            </trans-unit>
+            <trans-unit id="ROLE_BREAKINGNEWS_GET">
+                            <source>ROLE_BREAKINGNEWS_GET</source>
+                            <target>Listado de Breaking News</target>
+            </trans-unit>
+            <trans-unit id="ROLE_BREAKINGNEWS_CREATE">
+                            <source>ROLE_BREAKINGNEWS_CREATE</source>
+                            <target>Breaking News crear</target>
+            </trans-unit>
+            <trans-unit id="ROLE_BREAKINGNEWS_EDIT">
+                            <source>ROLE_BREAKINGNEWS_EDIT</source>
+                            <target>Breaking News editar</target>
+            </trans-unit>
+            <trans-unit id="ROLE_BREAKINGNEWS_PUBLISH">
+                            <source>ROLE_BREAKINGNEWS_PUBLISH</source>
+                            <target>Breaking News publicar</target>
+            </trans-unit>
+            <trans-unit id="ROLE_BREAKINGNEWS_UNPUBLISH">
+                            <source>ROLE_BREAKINGNEWS_UNPUBLISH</source>
+                            <target>Breaking News eliminar</target>
+            </trans-unit>
+            <trans-unit id="ROLE_HOME_GET">
+                            <source>ROLE_HOME_GET</source>
+                            <target>Listado de Portada Home</target>
+            </trans-unit>
+            <trans-unit id="ROLE_HOME_CREATE">
+                            <source>ROLE_HOME_CREATE</source>
+                            <target>Creación de portada Home</target>
+            </trans-unit>
+            <trans-unit id="ROLE_HOME_EDIT">
+                            <source>ROLE_HOME_EDIT</source>
+                            <target>Home editar</target>
+            </trans-unit>
+            <trans-unit id="ROLE_HOME_PUBLISH">
+                            <source>ROLE_HOME_PUBLISH</source>
+                            <target>Home publicar</target>
+            </trans-unit>
+            <trans-unit id="ROLE_HOME_DELETE">
+                            <source>ROLE_HOME_DELETE</source>
+                            <target>Borrado de HOME</target>
+            </trans-unit>
+            <trans-unit id="ROLE_PORTADAOPINION_GET">
+                            <source>ROLE_PORTADAOPINION_GET</source>
+                            <target>Listado Portada Opinión</target>
+            </trans-unit>
+            <trans-unit id="ROLE_PORTADAOPINION_CREATE">
+                            <source>ROLE_PORTADAOPINION_CREATE</source>
+                            <target>Opinión crear portada</target>
+            </trans-unit>
+            <trans-unit id="ROLE_PORTADAOPINION_EDIT">
+                            <source>ROLE_PORTADAOPINION_EDIT</source>
+                            <target>Opinión editar portada</target>
+            </trans-unit>
+            <trans-unit id="ROLE_PORTADAOPINION_PUBLISH">
+                            <source>ROLE_PORTADAOPINION_PUBLISH</source>
+                            <target>Opinión publicar portada</target>
+            </trans-unit>
+            <trans-unit id="ROLE_PORTADAOPINION_UNPUBLISH">
+                            <source>ROLE_PORTADAOPINION_UNPUBLISH</source>
+                            <target>Opinión despublicar portada</target>
+            </trans-unit>
+            <trans-unit id="ROLE_PORTADAS_GET">
+                            <source>ROLE_PORTADAS_GET</source>
+                            <target>Listado de Portadas</target>
+            </trans-unit>
+            <trans-unit id="ROLE_PORTADAS_CREATE">
+                            <source>ROLE_PORTADAS_CREATE</source>
+                            <target>Portadas crear</target>
+            </trans-unit>
+            <trans-unit id="ROLE_PORTADAS_EDIT">
+                            <source>ROLE_PORTADAS_EDIT</source>
+                            <target>Portadas editar</target>
+            </trans-unit>
+            <trans-unit id="ROLE_PORTADAS_PUBLISH">
+                            <source>ROLE_PORTADAS_PUBLISH</source>
+                            <target>Portadas publicar</target>
+            </trans-unit>
+            <trans-unit id="ROLE_PORTADAS_UNPUBLISH">
+                            <source>ROLE_PORTADAS_UNPUBLISH</source>
+                            <target>Portadas despublicar</target>
+            </trans-unit>
+            <trans-unit id="ROLE_AUTHORS_GET">
+                            <source>ROLE_AUTHORS_GET</source>
+                            <target>Listado de Autores</target>
+            </trans-unit>
+            <trans-unit id="ROLE_AUTHORS_CREATE">
+                            <source>ROLE_AUTHORS_CREATE</source>
+                            <target>Autores añadir</target>
+            </trans-unit>
+            <trans-unit id="ROLE_AUTHORS_EDIT">
+                            <source>ROLE_AUTHORS_EDIT</source>
+                            <target>Autores editar</target>
+            </trans-unit>
+            <trans-unit id="ROLE_AUTHORS_DELETE">
+                            <source>ROLE_AUTHORS_DELETE</source>
+                            <target>Autores desactivar</target>
+            </trans-unit>
+            <trans-unit id="ROLE_USERS_GET">
+                            <source>ROLE_USERS_GET</source>
+                            <target>Listado de Usuarios</target>
+            </trans-unit>
+            <trans-unit id="ROLE_USERS_GETPATHS">
+                            <source>ROLE_USERS_GETPATHS</source>
+                            <target>Listado de Rutas de Usuario</target>
+            </trans-unit>
+            <trans-unit id="ROLE_USERS_GETROLES">
+                            <source>ROLE_USERS_GETROLES</source>
+                            <target>Roles de usuarios</target>
+            </trans-unit>
+            <trans-unit id="ROLE_USERS_GETUSER">
+                            <source>ROLE_USERS_GETUSER</source>
+                            <target>Obtener un usuario por id</target>
+            </trans-unit>
+            <trans-unit id="ROLE_USERS_CREATE">
+                            <source>ROLE_USERS_CREATE</source>
+                            <target>Usuarios añadir</target>
+            </trans-unit>
+            <trans-unit id="ROLE_USERS_EDIT">
+                            <source>ROLE_USERS_EDIT</source>
+                            <target>Usuarios editar</target>
+            </trans-unit>
+            <trans-unit id="ROLE_USERS_DELETE">
+                            <source>ROLE_USERS_DELETE</source>
+                            <target>Usuarios desactivar</target>
+            </trans-unit>
+            <trans-unit id="ROLE_FLAGS_GET">
+                            <source>ROLE_FLAGS_GET</source>
+                            <target>Listado de Banderas</target>
+            </trans-unit>
+            <trans-unit id="ROLE_FLAGS_CREATE">
+                            <source>ROLE_FLAGS_CREATE</source>
+                            <target>Banderas añadir</target>
+            </trans-unit>
+            <trans-unit id="ROLE_FLAGS_EDIT">
+                            <source>ROLE_FLAGS_EDIT</source>
+                            <target>Banderas editar</target>
+            </trans-unit>
+            <trans-unit id="ROLE_FLAGS_DELETE">
+                            <source>ROLE_FLAGS_DELETE</source>
+                            <target>Banderas eliminar</target>
+            </trans-unit>
+            <trans-unit id="ROLE_CATEGORY_GET">
+                            <source>ROLE_CATEGORY_GET</source>
+                            <target>Listado de Secciones</target>
+            </trans-unit>
+            <trans-unit id="ROLE_CATEGORY_CREATE">
+                            <source>ROLE_CATEGORY_CREATE</source>
+                            <target>Sección crear</target>
+            </trans-unit>
+            <trans-unit id="ROLE_CATEGORY_EDIT">
+                            <source>ROLE_CATEGORY_EDIT</source>
+                            <target>Sección editar</target>
+            </trans-unit>
+            <trans-unit id="ROLE_CATEGORY_DELETE">
+                            <source>ROLE_CATEGORY_DELETE</source>
+                            <target>Sección desactivar</target>
+            </trans-unit>
+            <trans-unit id="ROLE_BLOG_GET">
+                            <source>ROLE_BLOG_GET</source>
+                            <target>Listado de Blogs</target>
+            </trans-unit>
+            <trans-unit id="ROLE_BLOG_CREATE">
+                            <source>ROLE_BLOG_CREATE</source>
+                            <target>Blogs añadir</target>
+            </trans-unit>
+            <trans-unit id="ROLE_BLOG_EDIT">
+                            <source>ROLE_BLOG_EDIT</source>
+                            <target>Blog editar</target>
+            </trans-unit>
+            <trans-unit id="ROLE_BLOG_DELETE">
+                            <source>ROLE_BLOG_DELETE</source>
+                            <target>Blog desactivar</target>
+            </trans-unit>
+            <trans-unit id="ROLE_COLUMN_GET">
+                            <source>ROLE_COLUMN_GET</source>
+                            <target>Listado de Columnas</target>
+            </trans-unit>
+            <trans-unit id="ROLE_COLUMN_CREATE">
+                            <source>ROLE_COLUMN_CREATE</source>
+                            <target>Columnas crear</target>
+            </trans-unit>
+            <trans-unit id="ROLE_COLUMN_EDIT">
+                            <source>ROLE_COLUMN_EDIT</source>
+                            <target>Columna editar</target>
+            </trans-unit>
+            <trans-unit id="ROLE_COLUMN_DELETE">
+                            <source>ROLE_COLUMN_DELETE</source>
+                            <target>Columnas desactivar</target>
+            </trans-unit>
+            <trans-unit id="ROLE_TAG_GET">
+                            <source>ROLE_TAG_GET</source>
+                            <target>Listado de Tags</target>
+            </trans-unit>
+            <trans-unit id="ROLE_TAG_CREATE">
+                            <source>ROLE_TAG_CREATE</source>
+                            <target>Tag añadir</target>
+            </trans-unit>
+            <trans-unit id="ROLE_TAG_EDIT">
+                            <source>ROLE_TAG_EDIT</source>
+                            <target>Tag editar</target>
+            </trans-unit>
+            <trans-unit id="ROLE_TAG_DELETE">
+                            <source>ROLE_TAG_DELETE</source>
+                            <target>Borrado de Tags</target>
+            </trans-unit>
+            <trans-unit id="ROLE_TAGCOMPANY_GET">
+                            <source>ROLE_TAGCOMPANY_GET</source>
+                            <target>Listado de Tags de Compañía</target>
+            </trans-unit>
+            <trans-unit id="ROLE_TAGCOMPANY_CREATE">
+                            <source>ROLE_TAGCOMPANY_CREATE</source>
+                            <target>Creación de Tags de Compañía</target>
+            </trans-unit>
+            <trans-unit id="ROLE_TAGCOMPANY_EDIT">
+                            <source>ROLE_TAGCOMPANY_EDIT</source>
+                            <target>Edición de Tags de Compañía</target>
+            </trans-unit>
+            <trans-unit id="ROLE_TAGCOMPANY_DELETE">
+                            <source>ROLE_TAGCOMPANY_DELETE</source>
+                            <target>Borrado de Tags de Compañía</target>
+            </trans-unit>
+
+            <trans-unit id="_SEARCH">
+                            <source>_SEARCH</source>
+                            <target>Búsqueda</target>
+            </trans-unit>
+            <trans-unit id="ROLE_PAGE_">
+                            <source>ROLE_PAGE_</source>
+                            <target>Notas</target>
+            </trans-unit>
+            <trans-unit id="ROLE_COLUMNTEXT_">
+                            <source>ROLE_COLUMNTEXT_</source>
+                            <target>Columnas de texto</target>
+            </trans-unit>
+            <trans-unit id="ROLE_POSTBLOG_">
+                            <source>ROLE_POSTBLOG_</source>
+                            <target>Post blog</target>
+            </trans-unit>
+            <trans-unit id="ROLE_IMAGE_">
+                            <source>ROLE_IMAGE_</source>
+                            <target>Imagenes</target>
+            </trans-unit>
+            <trans-unit id="ROLE_VIDEO_">
+                            <source>ROLE_VIDEO_</source>
+                            <target>Videos</target>
+            </trans-unit>
+            <trans-unit id="ROLE_PHOTOGALLERY_">
+                            <source>ROLE_PHOTOGALLERY_</source>
+                            <target>Fotogalería</target>
+            </trans-unit>
+            <trans-unit id="ROLE_STATICPAGE_">
+                            <source>ROLE_STATICPAGE_</source>
+                            <target>Página estática</target>
+            </trans-unit>
+            <trans-unit id="ROLE_ENTRADAAGENDA_">
+                            <source>ROLE_ENTRADAAGENDA_</source>
+                            <target>Agenda</target>
+            </trans-unit>
+            <trans-unit id="ROLE_BREAKINGNEWS_">
+                            <source>ROLE_BREAKINGNEWS_</source>
+                            <target>BreakingNews</target>
+            </trans-unit>
+            <trans-unit id="ROLE_HOME_">
+                            <source>ROLE_HOME_</source>
+                            <target>Home</target>
+            </trans-unit>
+            <trans-unit id="ROLE_PORTADAOPINION_">
+                            <source>ROLE_PORTADAOPINION_</source>
+                            <target>Portada opinión</target>
+            </trans-unit>
+            <trans-unit id="ROLE_PORTADAS_">
+                            <source>ROLE_PORTADAS_</source>
+                            <target>Portadas</target>
+            </trans-unit>
+            <trans-unit id="ROLE_AUTHORS_">
+                            <source>ROLE_AUTHORS_</source>
+                            <target>Autores</target>
+            </trans-unit>
+            <trans-unit id="ROLE_USERS_">
+                            <source>ROLE_USERS_</source>
+                            <target>Usuarios</target>
+            </trans-unit>
+            <trans-unit id="ROLE_FLAGS_">
+                            <source>ROLE_FLAGS_</source>
+                            <target>Banderas</target>
+            </trans-unit>
+            <trans-unit id="ROLE_CATEGORY_">
+                            <source>ROLE_CATEGORY_</source>
+                            <target>Categorías</target>
+            </trans-unit>
+            <trans-unit id="ROLE_COLUMN_">
+                            <source>ROLE_COLUMN_</source>
+                            <target>Columna</target>
+            </trans-unit>
+            <trans-unit id="ROLE_TAG_">
+                            <source>ROLE_TAG_</source>
+                            <target>Tags</target>
+            </trans-unit>
+            <trans-unit id="ROLE_TAGCOMPANY_">
+                            <source>ROLE_TAGCOMPANY_</source>
+                            <target>Tags company</target>
+            </trans-unit>
+
+            <trans-unit id="ROLE_SUPER_ADMIN">
+                            <source>ROLE_SUPER_ADMIN</source>
+                            <target>Super Admin</target>
+            </trans-unit>
+            <trans-unit id="ROLE_EDITOR">
+                            <source>ROLE_EDITOR</source>
+                            <target>Editor</target>
+            </trans-unit>
+            <trans-unit id="ROLE_REDACTOR">
+                            <source>ROLE_REDACTOR</source>
+                            <target>Redactor</target>
+            </trans-unit>
+            <trans-unit id="ROLE_REDACTORJR">
+                            <source>ROLE_REDACTORJR</source>
+                            <target>Redactor JR</target>
+            </trans-unit>
+            <trans-unit id="ROLE_BECARIOAUXILIAR">
+                            <source>ROLE_BECARIOAUXILIAR</source>
+                            <target>Becario Auxiliar</target>
+            </trans-unit>
+            <trans-unit id="ROLE_MULTIMEDIA">
+                            <source>ROLE_MULTIMEDIA</source>
+                            <target>Multimedia</target>
+            </trans-unit>
+            <trans-unit id="ROLE_PARALLAX_GET">
+                            <source>ROLE_PARALLAX_GET</source>
+                            <target>Paralax consulta</target>
+            </trans-unit>
+            <trans-unit id="ROLE_COMERCIAL">
+                            <source>ROLE_COMERCIAL</source>
+                            <target>Comercial</target>
+            </trans-unit>
+
+        </body>
+    </file>
+</xliff>

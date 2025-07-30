@@ -1,0 +1,19 @@
+backend_search_page:
+      path: /alltypes/
+      defaults: { _controller: BackendBundle:Search:alltypes }
+      methods: GET
+
+backend_search_typed:
+      path: /typed/
+      defaults: { _controller: BackendBundle:Search:all }
+      methods: GET
+
+backend_search_last:
+    path:   /last/
+    defaults: { _controller: BackendBundle:Search:lastNews }
+    methods: GET
+
+backend_search_legacy:
+    path:   /legacy/
+    defaults: { _controller: BackendBundle:Search:legacy }
+    methods: GET

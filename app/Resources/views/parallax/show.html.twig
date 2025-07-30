@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Parallax</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ parallax.id }}</td>
+            </tr>
+            <tr>
+                <th>Structure</th>
+                <td>{{ parallax.structure }}</td>
+            </tr>
+            <tr>
+                <th>Updatedat</th>
+                <td>{% if parallax.updatedAt %}{{ parallax.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('parallax_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('parallax_edit', { 'id': parallax.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

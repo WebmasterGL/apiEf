@@ -1,0 +1,24 @@
+folds_index:
+    path:     /{id}
+    defaults: { _controller: "BackendBundle:Folds:index", id:NULL }
+    methods:  GET
+
+folds_new:
+    path:     /
+    defaults: { _controller: "BackendBundle:Folds:new" }
+    methods:  [POST]
+
+folds_edit:
+    path:     /{id}
+    defaults: { _controller: "BackendBundle:Folds:edit", id:NULL }
+    methods:  [PUT]
+
+folds_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "BackendBundle:Folds:delete" }
+    methods:  DELETE
+
+folds_edit:
+    path:     /{id}
+    defaults: { _controller: "BackendBundle:Folds:edit", id:NULL }
+    methods:  [PUT]

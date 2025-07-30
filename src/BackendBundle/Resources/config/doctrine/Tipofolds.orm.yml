@@ -1,0 +1,21 @@
+BackendBundle\Entity\Tipofolds:
+    type: entity
+    table: tipofolds
+    id:
+        id:
+            type: integer
+            autoincrement: true
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        descripcion:
+            type: string
+            nullable: true
+            length: 200
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

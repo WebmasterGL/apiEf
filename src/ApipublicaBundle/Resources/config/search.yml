@@ -1,0 +1,19 @@
+apipublica_search_page:
+      path: /alltypes/
+      defaults: { _controller: ApipublicaBundle:Search:publicalltypes }
+      methods: GET
+
+apipublica_search_typed:
+      path: /typed/
+      defaults: { _controller: ApipublicaBundle:Search:publicall }
+      methods: GET
+
+apipublica_search_lastForExternal:
+      path: /last/
+      defaults: { _controller: ApipublicaBundle:Search:lastForExternal }
+      methods: GET
+
+apipublica_search_legacy:
+      path: /legacy/
+      defaults: { _controller: ApipublicaBundle:Search:legacy }
+      methods: GET

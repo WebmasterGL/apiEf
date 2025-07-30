@@ -1,0 +1,24 @@
+columna_index:
+    path:     /{idcolumna}
+    defaults: { _controller: "BackendBundle:Columna:index", idcolumna:NULL }
+    methods:  GET
+
+columna_show:
+    path:     /{id}/show
+    defaults: { _controller: "BackendBundle:Columna:show" }
+    methods:  GET
+
+columna_new:
+    path:     /
+    defaults: { _controller: "BackendBundle:Columna:new" }
+    methods:  [POST]
+
+columna_edit:
+    path:     /{id}
+    defaults: { _controller: "BackendBundle:Columna:edit" }
+    methods:  [PUT]
+
+columna_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "BackendBundle:Columna:delete" }
+    methods:  DELETE

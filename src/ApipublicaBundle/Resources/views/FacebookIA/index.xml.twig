@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+     xmlns:content="http://purl.org/rss/1.0/modules/content/"
+     xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="https://www.sitemaps.org/schemas/sitemap/0.9
+     https://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"> 
+    <channel>
+    <title>Instant Articles</title>
+    <description>
+        Feed de Articulos de "El Financiero" para Instant Articles de Facebook
+    </description>
+    <language>es-MX</language>
+    <pubDate>{{pubdate}}</pubDate>
+    <generator>
+        El Financiero IA Feed Generator ({{uri}})
+    </generator>
+    <link>{{uri}}</link>
+    {% for item in items %}
+        <item>
+            <title>{{item.title}}</title>
+            <description>{{item.description}}</description>
+            <pubDate>{{item.pubdate}}</pubDate>
+            <link>{{item.link}}</link>
+            <guid>{{item.guid}}</guid>
+            <category>{{item.category}}</category>
+            <categorySlug>{{item.categorySlug}}</categorySlug>
+            <articleSlug>{{item.articleSlug}}</articleSlug>
+            <author>{{item.author}}</author>
+            <content:encoded><![CDATA[{{item.content|raw}}]]></content:encoded>
+        </item>
+    {% endfor %}
+    </channel>
+</rss>    

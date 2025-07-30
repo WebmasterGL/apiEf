@@ -1,0 +1,20 @@
+backend_get_authors:
+    path:   /{idauthor}
+    defaults: { _controller: BackendBundle:Author:getAuthors, idauthor: NULL }
+    methods: GET
+
+backend_new_author:
+    path:   /
+    defaults: { _controller: BackendBundle:Author:newAuthor }
+    methods: POST
+
+backend_edit_author:
+    path:   /{id}
+    defaults: { _controller: BackendBundle:Author:editAuthor, id: null }
+    methods: PUT
+
+backend_delete_author:
+    path:   /{id}
+    defaults: { _controller: BackendBundle:Author:deleteAuthor, id: null }
+    methods: DELETE
+

@@ -1,0 +1,96 @@
+XalokBundle\Entity\Tag:
+    type: entity
+    table: tag
+    indexes:
+        title_idx:
+            columns:
+                - title
+        tag_type_idx:
+            columns:
+                - type
+    uniqueConstraints:
+        UNIQ_389B783989D9B62:
+            columns:
+                - slug
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        slug:
+            type: string
+            nullable: false
+            length: 128
+            options:
+                fixed: false
+        title:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        createdAt:
+            type: datetime
+            nullable: false
+            column: created_at
+        updatedAt:
+            type: datetime
+            nullable: true
+            column: updated_at
+        type:
+            type: string
+            nullable: true
+            length: 50
+            options:
+                fixed: false
+        deletedAt:
+            type: datetime
+            nullable: true
+            column: deleted_at
+    manyToMany:
+        audio:
+            targetEntity: Audio
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: tag
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+        file:
+            targetEntity: File
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: tag
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+        image:
+            targetEntity: Image
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: tag
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+        page:
+            targetEntity: Page
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: tag
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+        video:
+            targetEntity: Video
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: tag
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+    lifecycleCallbacks: {  }

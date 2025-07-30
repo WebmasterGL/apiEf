@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+<channel>
+    <title>
+        El Financiero
+    </title>
+    <link>
+        https://www.elfinanciero.com.mx
+    </link>
+    <description>
+        <![CDATA[ Economía, mercados y negocios en alianza con Bloomberg ]]>
+    </description>
+
+    <language>es-mx</language>
+    <copyright>El Financiero copyright 2018</copyright>
+    <atom:link href="https://elfinanciero.com.mx/rss/aef" rel="self" type="application/rss+xml" />
+    <itunes:category text="Business"></itunes:category>
+    <itunes:owner>
+        <itunes:name>El Financiero</itunes:name>
+        <itunes:email>contactoweb@elfinanciero.com.mx</itunes:email>
+    </itunes:owner>
+    <itunes:explicit>no</itunes:explicit>
+
+    <image>
+        <url>https://graficos.elfinanciero.com.mx/GoogleNarrative/logo1000.png</url>
+        <title>El Financiero</title>
+        <link>https://www.elfinanciero.com.mx</link>
+    </image>
+    {% for url in urls %}
+        <item>
+            <title>![CDATA[{{ url.title }}]]</title>
+            <description>![CDATA[{{ url.description }}]]</description>
+            <guid>{{ url.guid }}</guid>
+            <enclosure length="{{ url.enc_len }}" type="{{ url.enc_type }}" url="{{ url.enc_url }}"/>
+            <pubDate>{{ url.pubdate | date("r") }}</pubDate>
+            <itunes:duration>{{ url.itunes_duration }}</itunes:duration>
+        </item>
+    {% endfor %}
+</channel>
+</rss>

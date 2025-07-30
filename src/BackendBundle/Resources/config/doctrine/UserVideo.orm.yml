@@ -1,0 +1,37 @@
+BackendBundle\Entity\UserVideo:
+    type: entity
+    table: null
+    repositoryClass: BackendBundle\Repository\UserVideoRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        youtubeVId:
+            type: string
+            length: 255
+            column: youtube_v_id
+            nullable: true
+        vimeoVId:
+            type: string
+            length: 255
+            column: vimeo_v_id
+            nullable: true
+        createdAt:
+            type: datetime
+            nullable: true
+            column: created_at
+    manyToOne:
+        publisher:
+            targetEntity: WfUser
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                publisher_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,49 @@
+BackendBundle\Entity\Folds:
+    type: entity
+    table: folds
+    indexes:
+        idtipo:
+            columns:
+                - idtipo
+        category_id:
+            columns:
+                - category_id
+    id:
+        id:
+            type: integer
+            autoincrement: true
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        descripcion:
+            type: string
+            nullable: true
+            length: 300
+            options:
+                fixed: false
+    manyToOne:
+        idtipo:
+            targetEntity: Tipofolds
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idtipo:
+                    referencedColumnName: id
+            orphanRemoval: false
+        category:
+            targetEntity: Category
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                category_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

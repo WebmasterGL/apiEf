@@ -1,0 +1,124 @@
+BackendBundle\Entity\Portada:
+    type: entity
+    table: portada
+    repositoryClass: BackendBundle\Repository\PortadaRepository
+    indexes:
+        IDX_9DD868C43DA5256D:
+            columns:
+                - image_id
+        IDX_9DD868C4B03A8386:
+            columns:
+                - created_by_id
+        IDX_9DD868C412469DE2:
+            columns:
+                - category_id
+        IDX_9DD868C4896DBBDE:
+            columns:
+                - updated_by_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        status:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        observaciones:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        createdAt:
+            type: datetime
+            nullable: false
+            column: created_at
+        updatedAt:
+            type: datetime
+            nullable: true
+            column: updated_at
+        publishedAt:
+            type: datetime
+            nullable: true
+            column: published_at
+        nextPublishedAt:
+            type: datetime
+            nullable: true
+            column: next_published_at
+        code:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+#    oneToMany:
+#        misFolds:
+#             cascade: ["remove"]
+#             targetEntity: PortadaFolds
+#             mappedBy: idportada
+    manyToOne:
+        category:
+            targetEntity: Category
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                category_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        image:
+            targetEntity: Image
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                image_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        updatedBy:
+            targetEntity: WfUser
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                updated_by_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        createdBy:
+            targetEntity: WfUser
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                created_by_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        editingById:
+            targetEntity: WfUser
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                editing_by_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

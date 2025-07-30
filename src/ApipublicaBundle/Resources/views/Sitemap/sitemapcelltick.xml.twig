@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+    <channel>
+        <title>
+            <![CDATA[ El financiero ]]>
+        </title>
+        <link>
+            <![CDATA[ https://www.elfinanciero.com.mx ]]>
+        </link>
+        <description>
+            <![CDATA[ Economía, mercados y negocios en aliansa con Bloomberg ]]>
+        </description>
+        <language>
+            <![CDATA[ es-MX ]]>
+        </language>
+        {% for url in urls %}
+            <item>
+                <title>![CDATA[{{ url.title }}]]</title>
+                <category-description>![CDATA[{{ url.category-description }}]]</category-description>
+                <link>![CDATA[{{ url.link }}]]</link>
+                <guid>![CDATA[{{ url.slug }}]]</guid>
+                <pubDate>![CDATA[{{ url.publishedAt }}]]</pubDate>
+                <description>![CDATA[{{ url.description }}]]</description>
+            </item>
+        {% endfor %}
+    </channel>
+</rss>

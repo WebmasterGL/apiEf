@@ -1,0 +1,4 @@
+apipublica_programacion_tv:
+    path:   /slug
+    defaults: { _controller: ApipublicaBundle:ProgramacionTv:getProgramation  }
+    methods: GET

@@ -1,0 +1,540 @@
+{% spaceless %}
+
+    <!doctype html>
+    <html amp lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>{{ title }}</title>
+        <link rel="canonical" href="{{ url_canonical }}"/>
+        <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+        <script type="application/ld+json">
+            {{ metadata_header|raw }}
+        </script>
+        <script async custom-element="amp-dailymotion" src="https://cdn.ampproject.org/v0/amp-dailymotion-0.1.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Merriweather|Roboto:400,700" rel="stylesheet">
+        <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+        <style amp-custom>
+            body, html {
+                font-size: 14px;
+                color: #222222;
+                text-rendering: optimizeLegibility;
+                -webkit-font-smoothing: antialiased;
+            }
+
+            body {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+
+            header {
+                width: 100vw;
+                margin-left: -15px;
+                z-index: 99;
+                height: 46px; /*2.5rem*/
+                background: #042add;
+                background: -moz-linear-gradient(45deg, #042add 0%, #003399 100%);
+                background: -webkit-linear-gradient(45deg, #042add 0%, #003399 100%);
+                background: linear-gradient(45deg, #042add 0%, #003399 100%);
+                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#042add', endColorstr='#003399', GradientType=1);
+            }
+
+            h1 {
+                font-family: 'Roboto', sans-serif;
+                font-size: 36px;
+                line-height: 39px;
+                color: #111111;
+                font-weight: bold;
+                margin: 5px auto 10px;
+            }
+
+            h3 {
+                font-family: 'Roboto', sans-serif;
+                font-weight: bold;
+                background-color: #111;
+                color: #FFFFFF;
+                text-transform: uppercase;
+                display: inline-block;
+                padding: 0.1rem .75rem 0;
+                margin-top: 0.75rem;
+                height: 2rem;
+                line-height: 2rem;
+                font-size: 1rem;
+
+                margin-bottom: 0px;
+            }
+
+            h3:first-of-type {
+                margin-top: 15px;
+            }
+
+            div#Sumario {
+                font-size: 18px;
+                line-height: 25px;
+                margin-bottom: 0.75rem;
+                color: #111111;
+                position: relative;
+                font-family: 'Roboto', sans-serif;
+                font-weight: normal;
+                padding-left: 0;
+                padding-bottom: 20px;
+                border-bottom: 1px solid #ccc;
+            }
+
+            /* metadatos */
+            div#MetaDatos {
+                font-family: 'Roboto', sans-serif;
+                font-size: 1rem;
+                font-weight: normal;
+                display: inline-block;
+                margin: 10px 0;
+                color: #666;
+            }
+
+            div#MetaDatos span {
+                text-transform: none;;
+                margin: .5rem .75rem 0 0;
+                display: inline-block;
+                font-size: 0.875rem;
+            }
+
+            div#MetaDatos .box-title {
+                display: none;
+            }
+
+            /*Quote*/
+            .quote__block {
+                margin: 40px 0;
+            }
+
+            .quote__block div {
+                font-family: 'Roboto', sans-serif;
+                font-weight: 700;
+                color: #000000;
+                font-size: 26px;
+                line-height: 31px;
+            }
+
+            .quote__block .quote__open {
+                display: none;
+            }
+
+            .quote__block .quote__credit {
+                font-family: 'Roboto', sans-serif;
+                color: #666666;
+                font-weight: 700;
+                font-size: 17px;
+                line-height: 21px;
+            }
+
+            /* text content */
+            p {
+                font-family: 'Merriweather', serif;
+                font-size: 1.15rem;
+                line-height: 2rem;
+                font-weight: 400;
+                color: #222222;
+            }
+
+            a, a:visited, a:active {
+                font-size: 1.15rem;
+                text-decoration: none;
+                line-height: 15px;
+                color: #039;
+            }
+
+            figure {
+                margin-left: 0;
+                margin-right: 0;
+            }
+
+            /* //////////// */
+            /* header logo  */
+            amp-img#img1 {
+                align-items: center;
+                margin-top: 10px;
+            }
+
+            /* /////////  OPINION  //////// */
+            .ImgOpinion {
+                display: block;
+                float: left;
+                margin-right: 10px;
+                background: #eee;
+            }
+
+            .clear {
+                clear: both;
+            }
+
+            #columnista_nombre {
+                font-family: 'Roboto', sans-serif;
+                font-size: 22px;
+                line-height: 26px;
+                font-weight: bold;
+                display: block;
+            }
+
+            #columna_nombre {
+                font-family: 'Merriweather', serif;
+                font-size: 18px;
+                font-style: italic;
+                margin: 0 0 10px;
+                display: block;
+            }
+
+            #columnista_facebook {
+                font-family: 'Roboto', sans-serif;
+                font-weight: normal;
+                display: block;
+            }
+
+            #columnista_facebook a {
+                font-size: 14px;
+                background: url({{cdn_repository}}/uploads/2018/01/04/48db71587d1515105800.png) no-repeat;
+                background-size: cover;
+                width: 22px;
+                height: 22px;
+                display: inline-block;
+                border-radius: 2px;
+                text-indent: -9999px;
+                float: left;
+                margin-right: 10px;
+            }
+
+            #columnista_twitter {
+                font-family: 'Roboto', sans-serif;
+                font-weight: normal;
+                display: block;
+            }
+
+            #columnista_twitter a {
+                font-size: 14px;
+                background: url({{cdn_repository}}/uploads/2018/01/04/2912bbeedc1515105898.png) no-repeat;
+                background-size: cover;
+                width: 22px;
+                height: 22px;
+                display: inline-block;
+                border-radius: 2px;
+                text-indent: -9999px;
+                float: left;
+                margin-right: 10px;
+            }
+
+            #columnista_linkedin {
+                font-family: 'Roboto', sans-serif;
+                font-weight: normal;
+                display: block;
+            }
+
+            #columnista_linkedin a {
+                font-size: 14px;
+                background: url({{cdn_repository}}/uploads/2018/01/04/dc20d1211f1515105872.png) no-repeat;
+                background-size: cover;
+                width: 22px;
+                height: 22px;
+                display: inline-block;
+                border-radius: 2px;
+                text-indent: -9999px;
+                float: left;
+                margin-right: 10px;
+            }
+
+            #columnista_googleplus {
+                font-family: 'Roboto', sans-serif;
+                font-weight: normal;
+                display: block;
+            }
+
+            #columnista_googleplus a {
+                font-size: 14px;
+                background: url({{cdn_repository}}/uploads/2018/01/04/87ae6fb6311515105843.png) no-repeat;
+                background-size: cover;
+                width: 22px;
+                height: 22px;
+                display: inline-block;
+                border-radius: 2px;
+                text-indent: -9999px;
+                float: left;
+                margin-right: 10px;
+            }
+
+            #columnista_correo {
+                font-family: 'Roboto', sans-serif;
+                font-weight: normal;
+                display: block;
+            }
+
+            #columnista_correo a {
+                font-size: 14px;
+                background: url({{cdn_repository}}/uploads/2018/01/04/177da570351515105726.png) no-repeat;
+                background-size: cover;
+                width: 22px;
+                height: 22px;
+                display: inline-block;
+                border-radius: 2px;
+                text-indent: -9999px;
+                float: left;
+                margin-right: 10px;
+            }
+
+            amp-ad[type="teads"] {
+                margin: auto
+            }
+
+            amp-embed {
+              border-top: 3px solid #aaa;
+              margin-top: -4px;
+              top: 20px;
+            }
+
+            amp-sticky-ad {
+                max-height: 100px;
+                width: 100%;
+                opacity: 1;
+            }
+
+            .amp-flying-carpet-text-border {
+                background-color: #000;
+                color: #fff;
+                text-align: center;
+            }
+
+            .Formulario400 {
+              height:400px;
+            }
+            .Formulario500 {
+             height:500px;
+            }
+            .Formulario550 {
+              height:550px;
+            }
+            .Formulario600 {
+              height:600px;
+            }
+            .Formulario650 {
+              height:650px;
+            }
+        </style>
+        <script async src="https://cdn.ampproject.org/v0.js"></script>
+        <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+        <!-- Social Networks JS AMP -->
+        <script async custom-element="amp-twitter" src="https://cdn.ampproject.org/v0/amp-twitter-0.1.js"></script>
+        <script async custom-element="amp-facebook" src="https://cdn.ampproject.org/v0/amp-facebook-0.1.js"></script>
+        <script async custom-element="amp-youtube" src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js"></script>
+        <script async custom-element="amp-instagram" src="https://cdn.ampproject.org/v0/amp-instagram-0.1.js"></script>
+        <script async custom-element="amp-vimeo" src="https://cdn.ampproject.org/v0/amp-vimeo-0.1.js"></script>
+        <!-- iframes -->
+        <script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script>
+        <script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
+        <script async custom-element="amp-sticky-ad" src="https://cdn.ampproject.org/v0/amp-sticky-ad-1.0.js"></script>
+        <script async custom-element="amp-fx-flying-carpet" src="https://cdn.ampproject.org/v0/amp-fx-flying-carpet-0.1.js"></script>
+
+        {% if metadata_header_array is defined %}
+            <!-- Facebook OpenGraph-->
+            {% for key, metadata in metadata_header_array %}
+                {%  if key == 'og' %}
+                    {% for llave, data in metadata  %}
+                        <meta property="{{ llave }}" content="{{ data}}">
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+            <!-- Twitter card-->
+            {% for key, metadata in metadata_header_array %}
+                {%  if key == 'twitter' %}
+                    {% for llave, data in metadata  %}
+                        <meta property="{{ llave }}" content="{{ data}}">
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+        <meta name="description" content="{{ bullets[0] }}">
+    </head>
+
+    <body>
+    <amp-analytics type="comscore">
+        <script type="application/json">
+            {
+                "vars": {
+                    "c2": "10181342"
+                },
+                "extraUrlParams": {
+                    "comscorekw": "amp",
+                    "ns_site": "elfinanciero"
+                }
+            }
+        </script>
+    </amp-analytics>
+    <amp-analytics type="adobeanalytics">
+        <script type="application/json">
+            {
+                "vars": {
+                    "c2": "10181342"
+                },
+                "extraUrlParams": {
+                    "comscorekw": "amp",
+                    "fecha_pub": "{{publish_date}}",
+                    "tipo_social": "amp",
+                    "seccion": "{{section}}",
+                    "author": "{{raw_authors}}",
+                    "name" : "{{ slug|replace({'/':'.'})|raw }}"
+                }
+            }
+        </script>
+    </amp-analytics>
+
+     <!-- Facebook Pixel Code -->
+
+     <amp-pixel src="https://www.facebook.com/tr?id=141578583108418&ev=ViewContent&noscript=1" layout="nodisplay"></amp-pixel>
+
+     <amp-pixel src="https://www.facebook.com/tr?id=141578583108418&ev=PageView&noscript=1" layout="nodisplay"></amp-pixel>
+
+     <!-- End Facebook Pixel Code -->
+
+    <amp-analytics config="https://www.googletagmanager.com/amp.json?id=GTM-PXPXWBK&gtm.url=SOURCE_URL" data-credentials="include"></amp-analytics>
+
+    <header>
+        <amp-img id="img1" src="https://{{ cnd_repository }}{{ amp_logo_ef }}" width="216" height="23"></amp-img>
+    </header>
+    </br>
+    <center>
+      <amp-ad width=320 height=50 type="doubleclick" data-slot="/77835600/ef_{{section}}">
+        <div placeholder></div>
+        <div fallback></div>
+      </amp-ad>
+    </center>
+    <h3>{{ category }}</h3>
+    <h1>{{ title }}</h1>
+    {% if author_element_top is not defined %}
+        {% if bullets[0] is defined %}
+            <div id="Sumario">{{ bullets[0] }}</div>
+        {% endif %}
+        <div id="MetaDatos">
+            {% if element_top is defined %}
+                {% if authors is iterable %}
+                    {% for author in authors %} {{ author }} | {% endfor %}
+                {% else %}
+                    {{ authors }} |
+                {% endif %}
+            {% endif %}
+            {{ published_at }}
+            <br/>
+            <span>Última actualización</span>
+            <span class="publishDate" data-timestamp="{{ updated_timestamp }}">
+                {{ updated_at }}
+            </span>
+        </div>
+    {% endif %}
+    <!--header-->
+    {% if element_top is defined %}
+        <figure>
+            {% if element_top.type == "video" %}
+                <amp-vimeo data-videoid="{{ element_top.item }}" layout="responsive" width="500" height="300">
+                </amp-vimeo>
+            {% elseif element_top.type == "image" and element_top.item is defined %}
+                <amp-img src="https://{{ element_top.item }}" width="900" height="600" layout="responsive">
+                </amp-img>
+            {% elseif element_top.type == "html" %}
+                {{ element_top.item | raw }}
+            {% endif %}
+        </figure>
+    {% elseif author_element_top is defined %}
+        <amp-img src="https://{{ cnd_repository  }}{{ author_element_top.image }}" width="90" height="120" class="ImgOpinion">
+        </amp-img>
+        <span id="columnista_nombre">{{ author_element_top.name }}</span>
+        <span id="columna_nombre">{{ author_element_top.columna }}</span>
+        {% if author_element_top.facebook %}
+            <span id="columnista_facebook"><a href="https://www.facebook.com/{{ author_element_top.facebook }}"
+                                              target="_blank">
+                    {{ author_element_top.facebook }}</a></span>
+        {% endif %}
+        {% if author_element_top.twitter %}
+            <span id="columnista_twitter"><a href="https://www.twitter.com/{{ author_element_top.twitter }}"
+                                             target="_blank">
+                    {{ author_element_top.twitter }}</a></span>
+        {% endif %}
+        {% if author_element_top.linkedin %}
+            <span id="columnista_linkedin"><a href="https://www.linkedin.com/in/{{ author_element_top.linkedin }}"
+                                              target="_blank">
+                    {{ author_element_top.name }}</a></span>
+        {% endif %}
+        {% if author_element_top.googleplus %}
+            <span id="columnista_googleplus"><a href="https://plus.google.com/+elfinanciero" target="_blank">
+                    El Financiero</a></span>
+        {% endif %}
+        {% if author_element_top.email is not empty %}
+            <span id="columnista_correo"><a href="mailto:{{ author_element_top.email }}"
+                                            target="_blank">{{ author_element_top.email }}</a></span>
+        {% endif %}
+        <div class="clear"></div>
+        <div id="MetaDatos">
+            {{ published_at }}
+            <br/>
+            <span>Última actualización</span>
+            <span class="publishDate" data-timestamp="{{ updated_timestamp }}">
+                {{ updated_at }}
+            </span>
+        </div>
+        {% if bullets[0] is defined %}
+            <div id="Sumario">{{ bullets[0] }}</div>
+        {% endif %}
+    {% endif %}
+    <!-- end header-->
+    <!--body-->
+    {{ body_items|replace({'<body>':'','</body>':'','<img':'<amp-img width="900" height="600" layout="responsive"','</img>':'</amp-img>'})|raw }}
+    <!-- end body-->
+
+    <!--start Ad-->
+    {#<amp-ad width=300 height=1 type="teads" data-pid="59304" layout="responsive"
+            json='{"useSameDomainRenderingUntilDeprecated":1}'>
+    </amp-ad>#}
+    <amp-ad width=300 height=1 type="teads" data-pid="86144" layout="responsive"
+            json='{"useSameDomainRenderingUntilDeprecated":1}'>
+    </amp-ad>
+
+    <!--end Ad-->
+
+    <!--start sticky ad-->
+
+    <amp-sticky-ad layout="nodisplay">
+        <amp-ad width="320"
+            height="50"
+            type="doubleclick"
+            data-slot="/77835600/EF_StickyAd">
+        </amp-ad>
+    </amp-sticky-ad>
+
+    <!--end sticky ad-->
+
+    <!--start flying ad-->
+
+    <div class="amp-flying-carpet-text-border">Advertising</div>
+    <amp-fx-flying-carpet height="300px">
+        <amp-ad width="300"
+            height="600"
+            layout="fixed"
+            type="doubleclick"
+            data-multi-size="300x250"
+            data-slot="/77835600/EF_FlyingCarpet_Google_Adx">
+        </amp-ad>
+    </amp-fx-flying-carpet>
+    <div class="amp-flying-carpet-text-border">Advertising</div>
+
+    <!--end flying ad-->
+
+    <!--Taboola-->
+    <amp-embed width=100 height=100
+     type=taboola
+     layout=responsive
+     heights="(min-width:1469px) 215%, (min-width:1046px) 221%, (min-width:720px) 231%, (min-width:556px) 244%, (min-width:412px) 265%, 291%"
+     data-publisher="elfinanciero"
+     data-mode="thumbnails-a-amp"
+     data-placement="Mobile Below Article Thumbnails AMP"
+     data-target_type="mix"
+     data-article="auto"
+     data-url="">
+    </amp-embed>
+    <!--End Taboola-->
+
+    </body>
+    </html>
+{% endspaceless %}

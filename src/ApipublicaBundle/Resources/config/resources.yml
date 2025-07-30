@@ -1,0 +1,4 @@
+apipublica_resources_newspdf:
+    path:   /get
+    defaults: { _controller: ApipublicaBundle:Resources:get }
+    methods: GET

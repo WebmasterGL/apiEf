@@ -1,0 +1,24 @@
+cover_index:
+    path:     /{idcover}
+    defaults: { _controller: "BackendBundle:Cover:index", idcover:NULL }
+    methods:  GET
+
+cover_show:
+    path:     /{id}/show
+    defaults: { _controller: "BackendBundle:Cover:show" }
+    methods:  GET
+
+cover_new:
+    path:     /new
+    defaults: { _controller: "BackendBundle:Cover:new" }
+    methods:  POST
+
+cover_edit:
+    path:     /edit/{id}
+    defaults: { _controller: "BackendBundle:Cover:edit", id:NULL }
+    methods:  PUT
+
+cover_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "BackendBundle:Cover:delete" }
+    methods:  DELETE

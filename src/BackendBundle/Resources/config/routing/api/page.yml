@@ -1,0 +1,104 @@
+backend_bajar_page_legacy:
+    path:   /down-page
+    defaults: { _controller: BackendBundle:Page:bajarNotaLegacy }
+    methods: PUT
+
+backend_get_update_page:
+    path:   /update/{id}
+    defaults: { _controller: BackendBundle:Page:updateFieldPage, id: NULL }
+    methods: PUT
+
+backend_update_mass_page:
+    path:   /updatemass
+    defaults: { _controller: BackendBundle:Page:updateMassPage }
+    methods: PUT
+
+backend_get_page_slug:
+    path:   /slug
+    defaults: { _controller: BackendBundle:Page:getPageSlug }
+    methods: GET
+
+backend_get_clone_pages:
+    path:   /clone-list/{id}
+    defaults: { _controller: BackendBundle:Page:getClonePage, id: NULL }
+    methods: GET
+
+backend_get_page_version:
+    path:   /page-version/{id}
+    defaults: { _controller: BackendBundle:Page:getPageVersion, id: NULL}
+    methods: GET
+
+backend_new_page:
+    path:   /
+    defaults: { _controller: BackendBundle:Page:newPage }
+    methods: POST
+
+backend_slug_page:
+    path:   /slug
+    defaults: { _controller: BackendBundle:Page:slug }
+    methods: POST
+
+backend_validate_slug:
+    path:   /validate/slug
+    defaults: { _controller: BackendBundle:Page:slugValidate }
+    methods: POST
+
+backend_publish_page:
+    path:   /publish/{id}
+    defaults: { _controller: BackendBundle:Page:publishPage, id: null }
+    methods: POST
+
+backend_trash_list:
+    path:   /trash-list/
+    defaults: { _controller: BackendBundle:Page:trashList }
+    methods: GET
+
+#backend_trash_page:
+#    path:   /trash/{id}
+#    defaults: { _controller: BackendBundle:Page:trashPage, id: null }
+#    methods: POST
+
+backend_unpublish_page:
+    path:   /unpublish/{id}
+    defaults: { _controller: BackendBundle:Page:unpublishPage, id: null }
+    methods: POST
+
+backend_clone_page:
+    path:   /clone/{id}
+    defaults: { _controller: BackendBundle:Page:clonePage, id: null }
+    methods: POST
+
+backend_save_page:
+    path:   /{id}
+    defaults: { _controller: BackendBundle:Page:savePage, id: null }
+    methods: PUT
+
+backend_get_pages:
+    path:   /{idpage}
+    defaults: { _controller: BackendBundle:Page:getPages, idpage: NULL }
+    methods: GET
+
+backend_test_purga:
+    path:   testpurga/{s1}/{s2}/{s3}
+    defaults: { _controller: BackendBundle:Page:testPurga }
+    methods: GET
+
+#backend_purga_publica:
+#    path:   purgapublica/{s1}/{s2}/{s3}/{s4}
+#    defaults: { _controller: BackendBundle:Page:purgaPublica }
+#    methods: GET
+
+backend_comand_symfony:
+    path:   commandsymfony/{command}
+    defaults: { _controller: BackendBundle:Page:cmdSymfony }
+    methods: PUT
+
+backend_set_page_status:
+    path:   /{id}/{from}/{status}/{code}
+    defaults: { _controller: BackendBundle:Page:setPageStatus, id: NULL, from: null, status: null, code: null }
+    methods: PUT
+
+
+
+
+

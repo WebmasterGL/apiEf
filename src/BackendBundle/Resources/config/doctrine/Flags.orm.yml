@@ -1,0 +1,36 @@
+BackendBundle\Entity\Flags:
+    type: entity
+    table: flags
+    id:
+        idflags:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            nullable: false
+            length: 45
+            options:
+                fixed: false
+        imageUrl:
+            type: string
+            nullable: false
+            length: 2083
+            options:
+                fixed: false
+            column: image_url
+        html:
+            type: string
+            nullable: true
+            length: 16777215
+            options:
+                fixed: false
+        active:
+            type: boolean
+            nullable: false
+    lifecycleCallbacks: {  }

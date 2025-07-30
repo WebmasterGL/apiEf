@@ -1,0 +1,25 @@
+<rss version="2.0" xmlns:atom="https://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:slash="http://purl.org/rss/1.0/modules/slash/"> 
+    <channel>
+        <title>{{data.title}}</title>
+        <description>
+            {{data.description}}
+        </description>
+        <language>es-MX</language>
+        <pubDate>{{data.pubDate}}</pubDate>
+        <generator>
+            El Financiero Bloomberg (https://www.elfinanciero.com.mx/)
+        </generator>
+        <link>{{data.url}}</link>
+        {% for item in items %}
+            <item>
+                <title>{{item.title}}</title>
+                <link>https://www.elfinanciero.com.mx/{{item.slug}}</link>
+                <enclosure url="https://www.elfinanciero.com.mx{{item.main_image}}"/>
+                <content:encoded><![CDATA[
+                    {{item.content|raw}}
+                    ]]></content:encoded>
+                <slash:comments>0</slash:comments>
+            </item>
+        {% endfor %}
+    </channel>
+</rss>    

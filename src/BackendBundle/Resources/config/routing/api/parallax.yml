@@ -1,0 +1,24 @@
+parallax_index:
+    path:     /
+    defaults: { _controller: "BackendBundle:Parallax:index" }
+    methods:  GET
+
+parallax_show:
+    path:     /{id}/show
+    defaults: { _controller: "BackendBundle:Parallax:show" }
+    methods:  GET
+
+parallax_new:
+    path:     /new
+    defaults: { _controller: "BackendBundle:Parallax:new" }
+    methods:  [GET, POST]
+
+parallax_edit:
+    path:     /
+    defaults: { _controller: "BackendBundle:Parallax:edit" }
+    methods:  [PUT]
+
+parallax_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "BackendBundle:Parallax:delete" }
+    methods:  DELETE

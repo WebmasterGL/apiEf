@@ -1,0 +1,397 @@
+XalokBundle\Entity\Page:
+    type: entity
+    table: page
+    indexes:
+        IDX_140AB62012469DE2:
+            columns:
+                - category_id
+        IDX_140AB62040C86FCE:
+            columns:
+                - publisher_id
+        IDX_140AB6204BBC2705:
+            columns:
+                - version_id
+        IDX_140AB620F42BCCC6:
+            columns:
+                - next_version_id
+        IDX_140AB620E4873418:
+            columns:
+                - main_image_id
+        published_at_idx:
+            columns:
+                - published_at
+        date_time_idx:
+            columns:
+                - date_edition
+        next_published_at_idx:
+            columns:
+                - next_published_at
+        position_idx:
+            columns:
+                - position
+        template_idx:
+            columns:
+                - template
+        IDX_140AB62025CEDB07:
+            columns:
+                - main_tag_id
+        IDX_140AB620DC9EE959:
+            columns:
+                - metadata_id
+        IDX_140AB62061220EA6:
+            columns:
+                - creator_id
+        IDX_140AB620A4F5BA37:
+            columns:
+                - page_type
+        portal_id:
+            columns:
+                - portal_id
+    uniqueConstraints:
+        UNIQ_140AB620989D9B62:
+            columns:
+                - slug
+        UNIQ_140AB620953C1C61:
+            columns:
+                - source_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        createdAt:
+            type: datetime
+            nullable: false
+            column: created_at
+        updatedAt:
+            type: datetime
+            nullable: false
+            column: updated_at
+        publishedAt:
+            type: datetime
+            nullable: true
+            column: published_at
+        nextPublishedAt:
+            type: datetime
+            nullable: true
+            column: next_published_at
+        title:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        images:
+            type: json_array
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        videos:
+            type: json_array
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        audios:
+            type: json_array
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        javascripts:
+            type: json_array
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        styles:
+            type: json_array
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        status:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+        position:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        template:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        settings:
+            type: json_array
+            nullable: true
+            length: 16777215
+            options:
+                fixed: false
+        modules:
+            type: json_array
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        seo:
+            type: text
+            nullable: true
+            length: 16777215
+            options:
+                fixed: false
+        signature:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        epigraph:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        excerpt:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        related:
+            type: json_array
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        sourceId:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: source_id
+        slug:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        pageType:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: page_type
+        firstTitle:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: first_title
+        shortDescription:
+            type: string
+            nullable: true
+            length: 1000
+            options:
+                fixed: false
+            column: short_description
+        content:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        hasimages:
+            type: boolean
+            nullable: true
+            column: hasImages
+        hasvideos:
+            type: boolean
+            nullable: true
+            column: hasVideos
+        hasaudios:
+            type: boolean
+            nullable: true
+            column: hasAudios
+        dateEdition:
+            type: date
+            nullable: true
+            column: date_edition
+        paperCategory:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: paper_category
+        highlight:
+            type: boolean
+            nullable: true
+        portalId:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+            column: portal_id
+        social:
+            type: text
+            nullable: true
+            length: 16777215
+            options:
+                fixed: false
+        killerExtra:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+            column: killer_extra
+    manyToOne:
+        mainTag:
+            targetEntity: Tag
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                main_tag_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        publisher:
+            targetEntity: WfUser
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                publisher_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        version:
+            targetEntity: PageVersion
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                version_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        creator:
+            targetEntity: WfUser
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                creator_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        metadata:
+            targetEntity: PageMetadata
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                metadata_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        mainImage:
+            targetEntity: Image
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                main_image_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        nextVersion:
+            targetEntity: PageVersion
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                next_version_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        category_id:
+            targetEntity: Category
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                category_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    manyToMany:
+        author:
+            targetEntity: WfUser
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: page
+            joinTable:
+                name: page_author
+                joinColumns:
+                    -
+                        name: page_id
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    -
+                        name: author_id
+                        referencedColumnName: id
+            orderBy: null
+        category:
+            targetEntity: Category
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: page
+            joinTable:
+                name: page_category
+                joinColumns:
+                    -
+                        name: page_id
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    -
+                        name: category_id
+                        referencedColumnName: id
+            orderBy: null
+        tag:
+            targetEntity: Tag
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: page
+            joinTable:
+                name: page_tag
+                joinColumns:
+                    -
+                        name: page_id
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    -
+                        name: tag_id
+                        referencedColumnName: id
+            orderBy: null
+    lifecycleCallbacks: {  }

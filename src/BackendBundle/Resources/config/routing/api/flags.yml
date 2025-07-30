@@ -1,0 +1,19 @@
+backend_get_flags:
+    path:   /{id}
+    defaults: { _controller: BackendBundle:Flags:flags, id: null}
+    methods: GET
+
+backend_new_flag:
+    path:   /
+    defaults: { _controller: BackendBundle:Flags:add }
+    methods: POST
+
+backend_edit_flags:
+    path:   /{id}
+    defaults: { _controller: BackendBundle:Flags:edit, id: null }
+    methods: PUT
+
+backend_delete_flags:
+    path:   /{id}
+    defaults: { _controller: BackendBundle:Flags:delete, id: null }
+    methods: DELETE

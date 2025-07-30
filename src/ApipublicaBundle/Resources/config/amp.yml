@@ -1,0 +1,15 @@
+apipublica_amp_health:
+    path: /health/{param}/
+    defaults: { _controller: ApipublicaBundle:Amp:health, param: 'all' }
+    methods: GET
+
+apipublica_amp_category_title:
+    path: /{category}/{title}
+    defaults: { _controller: ApipublicaBundle:Amp:index }
+    methods: GET
+    
+apipublica_amp_category_subcategory_title:
+    path: /{category}/{subcategory}/{title}
+    defaults: { _controller: ApipublicaBundle:Amp:subindex }
+    methods: GET
+

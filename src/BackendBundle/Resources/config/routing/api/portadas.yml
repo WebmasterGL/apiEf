@@ -1,0 +1,30 @@
+portada_index:
+    path:     /{idportada}
+    defaults: { _controller: "BackendBundle:Portada:index", idportada:NULL }
+    methods:  GET
+
+portada_new:
+    path:     /
+    defaults: { _controller: "BackendBundle:Portada:new" }
+    methods:  [POST]
+
+portada_edit:
+    path:     /{id}
+    defaults: { _controller: "BackendBundle:Portada:edit", id:NULL }
+    methods:  [PUT]
+
+portada_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "BackendBundle:Portada:delete" }
+    methods:  DELETE
+
+portada_cloning:
+    path:     /clone
+    defaults: { _controller: "BackendBundle:Portada:cloning" }
+    methods:  [POST]
+
+portada_set_status:
+    path:   /{id}/{status}/{code}
+    defaults: { _controller: "BackendBundle:Portada:setCoverStatus", id: NULL, status: null, code: null }
+    methods: PUT
+

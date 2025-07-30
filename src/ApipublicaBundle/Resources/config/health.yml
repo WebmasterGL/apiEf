@@ -1,0 +1,4 @@
+apipublica_health_ping:
+    path:     /ping/{param}
+    defaults: { _controller: ApipublicaBundle:Health:check, param: "all" }
+    methods: GET

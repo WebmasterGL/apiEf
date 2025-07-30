@@ -1,0 +1,67 @@
+BackendBundle\Entity\Gallery:
+    type: entity
+    table: gallery
+    uniqueConstraints:
+        UNIQ_472B783A953C1C61:
+            columns:
+                - source_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        createdAt:
+            type: datetime
+            nullable: false
+            column: created_at
+        updatedAt:
+            type: datetime
+            nullable: false
+            column: updated_at
+        title:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        description:
+            type: string
+            nullable: true
+            length: 16000
+            options:
+                fixed: false
+        sourceId:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: source_id
+        publishedAt:
+            type: datetime
+            nullable: true
+            column: published_at
+    manyToMany:
+        image:
+            targetEntity: Image
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: gallery
+            joinTable:
+                name: gallery_image
+                joinColumns:
+                    -
+                        name: gallery_id
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    -
+                        name: image_id
+                        referencedColumnName: id
+            orderBy: null
+    lifecycleCallbacks: {  }

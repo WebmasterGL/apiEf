@@ -1,0 +1,75 @@
+apipublica_get_top_news:
+    path:   /top-news
+    defaults: { _controller: ApipublicaBundle:TopNews:getTopNews }
+    methods: GET
+
+backend_rss:
+    resource: "@ApipublicaBundle/Resources/config/rss.yml"
+
+apipublica_health:
+    resource: "@ApipublicaBundle/Resources/config/health.yml"
+    prefix: /health
+    
+apipublica_sitemap:
+    resource: "@ApipublicaBundle/Resources/config/sitemap.yml"
+        
+apipublica_google_analytics_most_views_rss:
+    path: /get-most-view-rss
+    defaults: { _controller: ApipublicaBundle:Analytics:index_rss, _format:xml }
+    methods: GET
+
+apipublica_google_analytics_most_views:
+    path: /get-most-view
+    defaults: { _controller: ApipublicaBundle:Analytics:index }
+    methods: GET
+
+apipublica_google_analytics_most_views_ext:
+    path: /get-most-view-ext
+    defaults: { _controller: ApipublicaBundle:Analytics:extended }
+    methods: GET
+
+apipublica_google_analytics_most_views_sections:
+    path: /get-most-view/{section}
+    defaults: {_controller: ApipublicaBundle:Analytics:section}
+    methods: GET
+    
+apipublica_amp:
+    resource: "@ApipublicaBundle/Resources/config/amp.yml"
+    prefix: /amp
+
+apipublica_testing:
+    path:     /testing/{param}
+    defaults: { _controller: ApipublicaBundle:Testing:index, param:'Sin Param' }
+    methods: GET
+
+frontend_vimeo:
+    resource: "@ApipublicaBundle/Resources/config/vimeo.yml"
+    prefix: /vimeo
+
+frontend_notas:
+    resource: "@ApipublicaBundle/Resources/config/notas.yml"
+    prefix: /notas
+
+frontend_search:
+    resource: "@ApipublicaBundle/Resources/config/search.yml"
+    prefix: /search
+
+frontend_tags:
+    resource: "@ApipublicaBundle/Resources/config/tags.yml"
+    prefix: /tags
+
+frontend_programacion_tv:
+    resource: "@ApipublicaBundle/Resources/config/programacion-tv.yml"
+    prefix: /programacion-tv
+
+apipublica_resources:
+    resource: "@ApipublicaBundle/Resources/config/resources.yml"
+    prefix: /resources
+
+frontend_youtube:
+    resource: "@ApipublicaBundle/Resources/config/youtube.yml"
+    prefix: /youtube
+
+#apipublica_top_news:
+#    resource: "@ApipublicaBundle/Resources/config/top-news.yml"
+#    prefix: /top-news

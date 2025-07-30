@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
+    {% for url in urls %}
+        <url>
+            <loc>{{ hostname }}{{ url.loc }}</loc>
+            <news:news>
+                <news:publication>
+                    <news:name>El financiero</news:name>
+                    <news:language>es</news:language>
+                </news:publication>
+                <news:genres>PressRelease</news:genres>
+                <news:publication_date>{{ url.publishedAt }}</news:publication_date>
+                <news:title>![CDATA[{{ url.title }}]]</news:title>
+                <news:keywords>![CDATA[{{ url.tag }}]]</news:keywords>
+            </news:news>
+        </url>
+    {% endfor %}
+</urlset>

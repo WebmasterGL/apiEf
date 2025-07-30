@@ -1,0 +1,72 @@
+BackendBundle\Entity\Evaluacion:
+    type: entity
+    table: evaluacion
+    indexes:
+        IDX_Evaluacion_Anio:
+            columns:
+                - page
+                - personaje
+                - anio_evaluacion
+        IDX_Evaluacion_AnioMes:
+            columns:
+                - page
+                - personaje
+                - anio_evaluacion
+                - mes_evaluacion
+        fk_personaje_idx:
+            columns:
+                - personaje
+        IDX_DEEDCA53140AB620:
+            columns:
+                - page
+    uniqueConstraints:
+        id_UNIQUE:
+            columns:
+                - id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        calificacion:
+            type: boolean
+            nullable: false
+        fchEvaluacion:
+            type: datetime
+            nullable: true
+            column: fch_evaluacion
+        anioEvaluacion:
+            type: date
+            nullable: true
+            column: anio_evaluacion
+        mesEvaluacion:
+            type: boolean
+            nullable: false
+            column: mes_evaluacion
+    manyToOne:
+        page:
+            targetEntity: Page
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                page:
+                    referencedColumnName: id
+            orphanRemoval: false
+        personaje:
+            targetEntity: Personaje
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                personaje:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

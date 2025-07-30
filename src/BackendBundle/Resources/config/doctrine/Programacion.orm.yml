@@ -1,0 +1,90 @@
+BackendBundle\Entity\Programacion:
+    type: entity
+    table: null
+    repositoryClass: BackendBundle\Repository\ProgramacionRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        diaHora:
+            type: string
+            length: 255
+        nameConductor:
+            type: string
+            length: 255
+            nullable: true
+        colorHexa:
+            type: string
+            length: 255
+        twitter:
+            type: string
+            length: 255
+            nullable: true
+        description:
+            type: string
+            length: 255
+        svgChannel:
+            type: string
+            nullable: true
+            length: 4294967295
+            options:
+                fixed: false
+        active:
+            type: boolean
+            nullable: true
+    manyToOne:
+        category:
+            targetEntity: Category
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                category_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        imageHost:
+            targetEntity: Image
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                image_host_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        imageTapiz:
+            targetEntity: Image
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                image_tapiz_id:
+                     referencedColumnName: id
+            orphanRemoval: false
+    manyToMany:
+        columna:
+            targetEntity: Columna
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: programacion
+            joinTable:
+                name: programacion_columna
+                joinColumns:
+                    -
+                        name: programacion_id
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    -
+                        name: columna_id
+                        referencedColumnName: id
+            orderBy: null
+    lifecycleCallbacks: {  }

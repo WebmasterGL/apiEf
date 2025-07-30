@@ -1,0 +1,72 @@
+BackendBundle\Entity\Cover:
+    type: entity
+    table: cover
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        createdAt:
+            type: datetime
+            nullable: false
+            column: created_at
+        updatedAt:
+            type: datetime
+            nullable: false
+            column: updated_at
+        publishedAt:
+            type: datetime
+            nullable: true
+            column: published_at
+        nextPublishedAt:
+            type: datetime
+            nullable: true
+            column: next_published_at
+        layoutId:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: layout_id
+        creatorId:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: creator_id
+        publisherId:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: publisher_id
+        structure:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        extra:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        status:
+            type: string
+            nullable: true
+            length: 20
+            options:
+                fixed: false
+        settings:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

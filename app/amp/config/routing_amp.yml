@@ -1,0 +1,4 @@
+
+apiamp:
+    resource: "@ApipublicaBundle/Resources/config/amp.yml"
+    prefix: /

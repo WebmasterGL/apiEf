@@ -1,0 +1,21 @@
+backend_youtube_search:
+    path:   /search
+    defaults: { _controller: BackendBundle:Youtube:searchVideo }
+    methods: GET
+
+backend_youtube_list:
+    path:   /list/{maxResults}/{pageToken}
+    defaults: { _controller: BackendBundle:Youtube:getList, maxResults: 10, pageToken: null }
+    methods: GET
+
+backend_youtube_upload:
+    path:   /upload
+    defaults: { _controller: BackendBundle:Youtube:uploadVideo }
+    methods: POST
+
+backend_youtube_add_thumbnail:
+    path:   /thumbnail
+    defaults: { _controller: BackendBundle:Youtube:uploadThumbnail }
+    methods: POST
+
+

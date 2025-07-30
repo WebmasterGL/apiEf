@@ -1,0 +1,9 @@
+apipublica_youtube_list:
+    path:   /list/{maxResults}
+    defaults: { _controller: ApipublicaBundle:Youtube:getList, maxResults: 10 }
+    methods: GET
+
+apipublica_youtube_search:
+    path:   /search/{query}/{maxResults}
+    defaults: { _controller: ApipublicaBundle:Youtube:search, maxResults: 10 }
+    methods: GET

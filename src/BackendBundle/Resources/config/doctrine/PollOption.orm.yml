@@ -1,0 +1,42 @@
+BackendBundle\Entity\PollOption:
+    type: entity
+    table: poll_option
+    indexes:
+        IDX_B68343EB3C947C0F:
+            columns:
+                - poll_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        optionName:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: option_name
+        voteCount:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: vote_count
+    manyToOne:
+        poll:
+            targetEntity: Poll
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                poll_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,19 @@
+backend_api_Tipofolds_index:
+    path:     /{id}
+    defaults: { _controller: "BackendBundle:Tipofolds:index", id:NULL }
+    methods:  GET
+
+backend_api_Tipofolds_new:
+    path:     /
+    defaults: { _controller: "BackendBundle:Tipofolds:new" }
+    methods:  [POST]
+
+backend_api_Tipofolds_edit:
+    path:     /{id}
+    defaults: { _controller: "BackendBundle:Tipofolds:edit", id:NULL }
+    methods:  [PUT]
+
+backend_api_Tipofolds_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "BackendBundle:Tipofolds:delete" }
+    methods:  DELETE

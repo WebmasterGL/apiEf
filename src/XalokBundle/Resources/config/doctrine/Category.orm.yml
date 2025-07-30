@@ -1,0 +1,131 @@
+XalokBundle\Entity\Category:
+    type: entity
+    table: category
+    indexes:
+        IDX_64C19C1727ACA70:
+            columns:
+                - parent_id
+        type_idx:
+            columns:
+                - type
+    uniqueConstraints:
+        UNIQ_64C19C1989D9B62:
+            columns:
+                - slug
+                - portal_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        title:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        description:
+            type: text
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        active:
+            type: boolean
+            nullable: false
+        createdAt:
+            type: datetime
+            nullable: false
+            column: created_at
+        updatedAt:
+            type: datetime
+            nullable: false
+            column: updated_at
+        picturename:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: pictureName
+        template:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        articleTemplate:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: article_template
+        lft:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+        rgt:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+        root:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        lvl:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+        slug:
+            type: string
+            nullable: false
+            length: 128
+            options:
+                fixed: false
+        type:
+            type: string
+            nullable: true
+            length: 16
+            options:
+                fixed: false
+        radar:
+            type: boolean
+            nullable: true
+        portalId:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '1'
+            column: portal_id
+    manyToOne:
+        parent:
+            targetEntity: Category
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                parent_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    manyToMany:
+        page:
+            targetEntity: Page
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: category
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+    lifecycleCallbacks: {  }

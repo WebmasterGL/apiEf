@@ -1,0 +1,34 @@
+backend_test:
+    path:   /new
+    defaults: { _controller: BackendBundle:API:createNew }
+    methods: POST
+
+backend_new_personaje:
+    path:   /personajes
+    defaults: { _controller: BackendBundle:API:newPersonaje }
+    methods: POST
+
+backend_edit_personaje:
+        path:   /personajes/{id}
+        defaults: { _controller: BackendBundle:API:editPersonaje, id: null }
+        methods: PUT
+
+backend_testToken:
+        path:   /testToken
+        defaults: { _controller: BackendBundle:API:testToken }
+        methods: POST
+
+backend_testValidation:
+        path:   /testValidation
+        defaults: { _controller: BackendBundle:API:testValidation }
+        methods: POST
+
+backend_columna:
+        path:   /newColumna
+        defaults: { _controller: BackendBundle:API:newColumn }
+        methods: POST
+
+backend_cleanPortadas:
+        path:   /cleanFolds/{source}/{dias}/{task}/{em}/{helpers}/{mindiasvigentes}
+        defaults: { _controller: BackendBundle:API:cleanFolds }
+        methods: GET

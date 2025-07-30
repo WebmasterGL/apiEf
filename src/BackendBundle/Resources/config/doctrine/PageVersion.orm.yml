@@ -1,0 +1,344 @@
+BackendBundle\Entity\PageVersion:
+    type: entity
+    table: page_version
+    repositoryClass: BackendBundle\Repository\PageVersionRepository
+    indexes:
+        IDX_457C3856C4663E4:
+            columns:
+                - page_id
+        IDX_457C385640C86FCE:
+            columns:
+                - publisher_id
+        IDX_457C3856E4873418:
+            columns:
+                - main_image_id
+        IDX_457C38564BBC2705:
+            columns:
+                - version_id
+        IDX_457C385661220EA6:
+            columns:
+                - creator_id
+        IDX_457C385625CEDB07:
+            columns:
+                - main_tag_id
+        IDX_457C385696A6FC1:
+            columns:
+                - editing_by_id
+        IDX_457C3856EB668AE4:
+            columns:
+                - columna_id
+        IDX_457C3856DAE07E97:
+            columns:
+                - blog_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        createdAt:
+            type: datetime
+            nullable: false
+            column: created_at
+        updatedAt:
+            type: datetime
+            nullable: false
+            column: updated_at
+        publishedAt:
+            type: datetime
+            nullable: true
+            column: published_at
+        versionNo:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: version_no
+        createdAtPage:
+            type: datetime
+            nullable: true
+            column: created_at_page
+        updatedAtPage:
+            type: datetime
+            nullable: true
+            column: updated_at_page
+        publishedAtPage:
+            type: datetime
+            nullable: true
+            column: published_at_page
+        title:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        status:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        template:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        seo:
+            type: json_array
+            nullable: true
+            length: 16777215
+            options:
+                fixed: false
+        settings:
+            type: json_array
+            nullable: true
+            length: 16777215
+            options:
+                fixed: false
+        modules:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        related:
+            type: json_array
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        slug:
+            type: text
+            nullable: false
+            length: 16777215
+            options:
+                fixed: false
+        pageType:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: page_type
+        shortDescription:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: short_description
+        content:
+            type: text
+            nullable: true
+            length: 16777215
+            options:
+                fixed: false
+        portalId:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: portal_id
+        social:
+            type: json_array
+            nullable: true
+            length: 16777215
+            options:
+                fixed: false
+        html:
+            type: text
+            nullable: true
+            length: 16777215
+            options:
+                fixed: false
+        html_serialize:
+            type: json_array
+            nullable: true
+            length: 16777215
+            options:
+                fixed: false
+        newslatter:
+            type: boolean
+            nullable: true
+        bullets:
+            type: json_array
+            nullable: true
+            length: 16777215
+            options:
+                fixed: false
+        place:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        mostViewed:
+            type: boolean
+            nullable: true
+        rss:
+            type: json_array
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        elementHtml:
+            type: text
+            nullable: true
+            length: 16777215
+            options:
+                fixed: false
+            column: element_html
+        elementHtmlSerialized:
+            type: json_array
+            nullable: true
+            length: 16777215
+            options:
+                fixed: false
+        code:
+            type: string
+            nullable: false
+            length: 1000
+            options:
+                fixed: false
+        isBreaking:
+            type: boolean
+            nullable: true
+            column: is_breaking
+        fieldsManytoMany:
+            type: json_array
+            nullable: true
+            length: 16777215
+            options:
+                fixed: false
+            column: fields_many_to_many
+        nextPublishedAt:
+            type: datetime
+            nullable: true
+            column: next_published_at
+        nextPublishedAtPage:
+            type: datetime
+            nullable: true
+            column: next_published_at_page
+        slug_redirect:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+    manyToOne:
+        flag:
+            targetEntity: Flags
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                flag_id:
+                    referencedColumnName: idflags
+            orphanRemoval: false
+        mainTag:
+            targetEntity: Tag
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                main_tag_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        publisher:
+            targetEntity: WfUser
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                publisher_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        version:
+            targetEntity: PageVersion
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                version_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        creator:
+            targetEntity: WfUser
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                creator_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        editingBy:
+            targetEntity: WfUser
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                editing_by_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        page:
+            targetEntity: Page
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                page_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        blog:
+            targetEntity: Blog
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                blog_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        mainImage:
+            targetEntity: Image
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                main_image_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        columna:
+            targetEntity: Columna
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                columna_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        categoryId:
+            targetEntity: Category
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                category_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

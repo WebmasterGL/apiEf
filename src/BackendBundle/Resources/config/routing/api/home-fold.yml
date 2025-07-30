@@ -1,0 +1,20 @@
+home_fold_edit:
+    path:     /edit/{id}
+    defaults: { _controller: "BackendBundle:HomeFold:edit", action: edit }
+    methods:  [GET]
+
+home_fold_editall:
+    path:     /{id}
+    defaults: { _controller: "BackendBundle:HomeFold:actionPF", id: null }
+    methods:  [PUT]
+
+home_fold_set_status:
+    path:   /{id}/{status}/{code}
+    defaults: { _controller: "BackendBundle:HomeFold:setFoldStatus", id: NULL }
+    methods: PUT
+
+home_fold_cloning:
+    path:     /clone
+    defaults: { _controller: "BackendBundle:HomeFold:cloning" }
+    methods:  [POST]
+

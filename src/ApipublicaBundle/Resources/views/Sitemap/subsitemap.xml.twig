@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="https://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="https://www.sitemaps.org/schemas/sitemap/0.9
+            https://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+{% for url in urls %}
+    <url>
+        {# comprueba que hostname no esté ya incluido en url #}
+        <loc>
+            {% if url.loc|replace({hostname:''}) == url.loc %}
+                {{ hostname }}{{ url.loc|replace({'.html':''}) }}
+            {% else %}
+                {{ url.loc|replace({'.html':''}) }}
+            {% endif %}
+        </loc>
+        {% if url.lastmod is defined %}
+            <lastmod>{{ url.lastmod }}</lastmod>
+        {% endif %}
+        {% if url.changefreq is defined %}
+            <changefreq>{{ url.changefreq }}</changefreq>
+        {% endif %}
+        {% if url.priority is defined %}
+            <priority>{{ url.priority }}</priority>
+        {% endif %}
+    </url>
+{% endfor %}
+</urlset>

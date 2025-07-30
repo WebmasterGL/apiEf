@@ -1,0 +1,95 @@
+BackendBundle\Entity\Menu:
+    type: entity
+    table: menu
+    indexes:
+        IDX_7D053A93727ACA70:
+            columns:
+                - parent_id
+    uniqueConstraints:
+        UNIQ_7D053A93989D9B62:
+            columns:
+                - slug
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        title:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        active:
+            type: boolean
+            nullable: true
+        type:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        details:
+            type: json_array
+            nullable: true
+            length: null
+            options:
+                fixed: false
+        lft:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+        rgt:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+        root:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        lvl:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+        createdAt:
+            type: datetime
+            nullable: false
+            column: created_at
+        updatedAt:
+            type: datetime
+            nullable: false
+            column: updated_at
+        slug:
+            type: string
+            nullable: false
+            length: 128
+            options:
+                fixed: false
+        cssClass:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: css_class
+    manyToOne:
+        parent:
+            targetEntity: Menu
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                parent_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

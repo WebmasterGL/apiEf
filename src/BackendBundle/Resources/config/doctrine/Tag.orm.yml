@@ -1,0 +1,70 @@
+BackendBundle\Entity\Tag:
+    type: entity
+    table: tag
+    indexes:
+        title_idx:
+            columns:
+                - title
+        tag_type_idx:
+            columns:
+                - type
+    uniqueConstraints:
+        UNIQ_389B783989D9B62:
+            columns:
+                - slug
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        slug:
+            type: string
+            nullable: false
+            length: 128
+            options:
+                fixed: false
+        title:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        createdAt:
+            type: datetime
+            nullable: false
+            column: created_at
+        updatedAt:
+            type: datetime
+            nullable: true
+            column: updated_at
+        type:
+            type: string
+            nullable: true
+            length: 50
+            options:
+                fixed: false
+        deletedAt:
+            type: datetime
+            nullable: true
+            column: deleted_at
+        active:
+            type: boolean
+            nullable: true
+        slug_redirect:
+            type: string
+            nullable: true
+            length: 128
+            options:
+                fixed: false
+        id_redirect:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+
+    lifecycleCallbacks: {  }

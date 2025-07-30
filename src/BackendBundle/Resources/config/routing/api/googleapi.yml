@@ -1,0 +1,9 @@
+backend_search_google_place:
+    path:   /search/{query}
+    defaults: { _controller: BackendBundle:GoogleApi:search }
+    methods: GET
+
+backend_details_google_place:
+    path:   /details/{place_id}
+    defaults: { _controller: BackendBundle:GoogleApi:getDetails }
+    methods: GET

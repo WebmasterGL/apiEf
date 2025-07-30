@@ -1,0 +1,131 @@
+{
+    "rules": [
+        {
+            "class": "TextNodeRule"
+        },
+        {
+            "class": "PassThroughRule",
+            "selector": "html"
+        },
+        {
+            "class": "PassThroughRule",
+            "selector": "head"
+        },
+        {
+            "class": "PassThroughRule",
+            "selector": "script"
+        },
+        {
+            "class": "PassThroughRule",
+            "selector": "body"
+        },
+        {
+            "class": "H2Rule",
+            "selector": "h3"
+        },
+        {
+            "class":"PassThroughRule",
+            "selector":"div.text_block"
+        },
+        {
+            "class": "PassThroughRule",
+            "selector": "div.figure__block"
+        },
+        {
+            "class": "ParagraphRule",
+            "selector": "p.paragraph"
+        },
+        {
+            "class": "ItalicRule",
+            "selector": "em"
+        },
+        {
+            "class": "ParagraphRule",
+            "selector": "p.paragraph"
+        },
+        {
+            "class": "BoldRule",
+            "selector": "strong"
+        },
+        {
+            "class": "ImageRule",
+            "selector": "div.image__block ",
+            "properties": {
+                "image.url": {
+                    "type": "string",
+                    "selector": "figure img",
+                    "attribute": "src"
+                },
+                "image.caption": {
+                    "type": "element",
+                    "selector": "div.image__block span.element__footer"
+                },
+                "image.credit": {
+                    "type": "element",
+                    "selector": "div.image__block span.element__credit"
+                }
+            }
+        }, 
+        {
+            "class": "AnchorRule",
+            "selector": "a", 
+            "properties": {
+                "anchor.href": {
+                    "type": "string",
+                    "selector": "a",
+                    "attribute": "href"
+                },
+                "anchor.rel": {
+                    "type": "string",
+                    "selector": "a"
+                }
+            }
+        }, 
+        {
+            "class":"ListElementRule", 
+            "selector": "ol"
+        },
+        {
+            "class":"ListElementRule", 
+            "selector": "ul"
+        },
+        {
+            "class": "BoldRule",
+            "selector": "div.figgure__value"
+        },
+        {
+            "class": "ParagraphRule", 
+            "selector": "figure__context"
+        }, 
+        {
+            "class": "BlockquoteRule", 
+            "selector": "div.featured__block"
+        }, 
+        {
+           "class": "PassThroughRule", 
+            "selector": "div.quote__block"
+        },
+        {
+            "class": "PullquoteRule", 
+            "selector": "div.quote_text"
+        },
+        {
+           "class": "PassThroughRule", 
+            "selector": "div.quote__credit"
+        },
+        {
+            "class": "PullquoteCiteRule", 
+            "selector": "span.name"
+        },
+        {
+            "class": "InteractiveRule",
+            "selector": "div.rich__block",
+            "properties" : {
+                "interactive.iframe" : {
+                    "type": "element",
+                    "selector": "blockquote"
+                }
+            }
+        }
+    ]
+}

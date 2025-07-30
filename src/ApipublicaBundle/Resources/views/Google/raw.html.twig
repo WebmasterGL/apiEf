@@ -1,0 +1,14 @@
+<table>
+    <tr>
+        <th>Título</th>
+        <th>Slug</th>
+        <th>Hits(vistas)</th>
+    </tr>
+{% for article in articles %}
+    <tr>
+        <td>{{article[0]}}</td>
+        <td>{{article[1]}}</td>
+        <td>{{article[2]}}</td>
+    </tr>
+{% endfor %}
+</table>

@@ -1,0 +1,38 @@
+backend_get_images:
+    path:   /{id}
+    defaults: { _controller: BackendBundle:Image:image, id: null}
+    methods: GET
+
+backend_new_image:
+    path:   /
+    defaults: { _controller: BackendBundle:Image:add }
+    methods: POST
+
+backend_edit_images:
+    path:   /{id}
+    defaults: { _controller: BackendBundle:Image:edit, id: null }
+    methods: POST
+
+backend_delete_images:
+    path:   /{id}
+    defaults: { _controller: BackendBundle:Image:delete, id: null }
+    methods: DELETE
+
+backend_slug_images:
+      path: /slug/{title}
+      defaults: { _controller: BackendBundle:Image:slug }
+      methods: POST
+
+backend_source_images:
+    path:   /source/
+    defaults: { _controller: BackendBundle:Image:agencies }
+    methods: GET
+
+backend_get_url:
+    path:   /getUrl/
+    defaults: { _controller: BackendBundle:Image:getUrl}
+    methods: GET
+backend_get_phpinfo:
+    path:   /getInfo/
+    defaults: { _controller: BackendBundle:Image:getInfo}
+    methods: GET

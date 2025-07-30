@@ -1,0 +1,135 @@
+BackendBundle\Entity\Author:
+    type: entity
+    table: author
+    indexes:
+        IDX_BDAFD8C8C53D045F:
+            columns:
+                - image
+        IDX_BDAFD8C862006EBA:
+            columns:
+                - image_small
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: true
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+                default: ''
+        bio:
+            type: text
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        twitter:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+        aMaterno:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+            column: a_materno
+        aPaterno:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+            column: a_paterno
+        email:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+        facebook:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+        linkedin:
+            type: string
+            nullable: true
+            length: 100
+            options:
+                fixed: false
+        active:
+            type: boolean
+            nullable: true
+        googlePlus:
+            type: string
+            nullable: true
+            length: 50
+            options:
+                fixed: false
+            column: google_plus
+        corresponsal:
+            type: boolean
+            nullable: true
+        sexo:
+            type: string
+            nullable: true
+            length: 50
+            options:
+                fixed: false
+        rss:
+            type: boolean
+            nullable: true
+        hiddenName:
+            type: boolean
+            nullable: true
+            column: hidden_name
+        slug:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        createdAt:
+            type: datetime
+            nullable: false
+            column: created_at
+        updatedAt:
+            type: datetime
+            nullable: false
+            column: updated_at
+
+    manyToOne:
+        imageSmall:
+            targetEntity: Image
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                image_small:
+                    referencedColumnName: id
+            orphanRemoval: false
+        image:
+            targetEntity: Image
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                image:
+                    referencedColumnName: id
+            orphanRemoval: false
+
+    lifecycleCallbacks: {  }

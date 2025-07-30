@@ -1,0 +1,206 @@
+XalokBundle\Entity\WfUser:
+    type: entity
+    table: wf_user
+    indexes:
+        IDX_7C9A8CD386383B10:
+            columns:
+                - avatar_id
+    uniqueConstraints:
+        UNIQ_7C9A8CD392FC23A8:
+            columns:
+                - username_canonical
+        UNIQ_7C9A8CD3A0D96FBF:
+            columns:
+                - email_canonical
+        UNIQ_7C9A8CD3989D9B62:
+            columns:
+                - slug
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        username:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        usernameCanonical:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: username_canonical
+        email:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        emailCanonical:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: email_canonical
+        enabled:
+            type: boolean
+            nullable: false
+        salt:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        password:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        lastLogin:
+            type: datetime
+            nullable: true
+            column: last_login
+        locked:
+            type: boolean
+            nullable: false
+        expired:
+            type: boolean
+            nullable: false
+        expiresAt:
+            type: datetime
+            nullable: true
+            column: expires_at
+        confirmationToken:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: confirmation_token
+        passwordRequestedAt:
+            type: datetime
+            nullable: true
+            column: password_requested_at
+        roles:
+            type: array
+            nullable: false
+            length: null
+            options:
+                fixed: false
+        credentialsExpired:
+            type: boolean
+            nullable: false
+            column: credentials_expired
+        credentialsExpireAt:
+            type: datetime
+            nullable: true
+            column: credentials_expire_at
+        contact:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        firstName:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: first_name
+        lastName:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: last_name
+        slug:
+            type: string
+            nullable: false
+            length: 128
+            options:
+                fixed: false
+        twitter:
+            type: string
+            nullable: true
+            length: 64
+            options:
+                fixed: false
+        facebook:
+            type: string
+            nullable: true
+            length: 64
+            options:
+                fixed: false
+        job:
+            type: string
+            nullable: true
+            length: 128
+            options:
+                fixed: false
+        description:
+            type: string
+            nullable: true
+            length: 256
+            options:
+                fixed: false
+        columnist:
+            type: boolean
+            nullable: false
+    manyToOne:
+        avatar:
+            targetEntity: Image
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                avatar_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    manyToMany:
+        blog:
+            targetEntity: Blog
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: user
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+        page:
+            targetEntity: Page
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: author
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+        group:
+            targetEntity: WfGroup
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: user
+            joinTable:
+                name: wf_user_group
+                joinColumns:
+                    -
+                        name: user_id
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    -
+                        name: group_id
+                        referencedColumnName: id
+            orderBy: null
+    lifecycleCallbacks: {  }

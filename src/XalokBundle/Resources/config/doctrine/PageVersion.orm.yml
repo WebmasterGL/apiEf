@@ -1,0 +1,61 @@
+XalokBundle\Entity\PageVersion:
+    type: entity
+    table: page_version
+    indexes:
+        IDX_457C3856C4663E4:
+            columns:
+                - page_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        createdAt:
+            type: datetime
+            nullable: false
+            column: created_at
+        updatedAt:
+            type: datetime
+            nullable: false
+            column: updated_at
+        publishedAt:
+            type: datetime
+            nullable: true
+            column: published_at
+        versionNo:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: version_no
+        pageClass:
+            type: text
+            nullable: false
+            length: null
+            options:
+                fixed: false
+            column: page_class
+        pageData:
+            type: text
+            nullable: false
+            length: 16777215
+            options:
+                fixed: false
+            column: page_data
+    manyToOne:
+        page:
+            targetEntity: Page
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                page_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }
