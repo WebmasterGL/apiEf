@@ -1,7 +1,7 @@
 {
   "type": "service_account",
   "project_id": "my-project-1500388837787",
-  "private_key_id": "f6ccae1ef1133ba9aae8653cff429ab2429b5fdf",
+  "private_key_id": "",
   "private_key": "",
   "client_email": "recuperar-mas-vistos@my-project-1500388837787.iam.gserviceaccount.com",
   "client_id": "111576572200190261579",
